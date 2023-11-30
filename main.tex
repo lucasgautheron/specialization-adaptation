@@ -106,7 +106,7 @@
 \maketitle
 
 \begin{abstract}
-    Scientists must navigate between the need to capitalize on their prior knowledge by specializing, and the need to adapt to evolving research opportunities. This paper proposes a Bayesian approach for unveiling transformations in scientists' research portfolios in response to changes in their field, and the effect of their intellectual, social, and institutional resources on their trajectories. The proposed methodology is applied to high-energy physics from years 2000 to 2020, as the dominant status of particle accelerators has been increasingly challenged. %The analysis reveals major shifts from the physics of neutrinos and the electroweak sector toward dark matter, and from string theory to black holes and the holographic principle. 
+    Scientists must navigate between the need to capitalize on their prior knowledge by specializing, and the need to adapt to evolving research opportunities. This paper proposes a Bayesian model for unveiling transformations in scientists' research portfolios in response to changes in their field and the effect of their intellectual, social, and institutional resources on their trajectories. The model is applied to a cohort of high-energy physicists from years 2000 to 2020. %The analysis reveals major shifts from the physics of neutrinos and the electroweak sector toward dark matter, and from string theory to black holes and the holographic principle. 
     The reallocation of research efforts in response to change is shown to be mainly structured by learning costs. Two dimensions of social capital, namely ``diversity'' and ``power'', have opposite effects on the magnitude of change in research interests: while ``diversity'' tends to disrupt research interests, ``power'' stabilizes the physicists' research agenda -- as does institutional stability. Social capital is more crucial to shifts between more cognitively distant research areas. Outcomes of scientists' trajectories are explored, highlighting the relative pay-off of different strategies in terms of citations.
 \end{abstract}
 
@@ -445,7 +445,7 @@ In this expression, $\delta_{k,k'}$ is the effect of the expertise in $k$ (socia
     \delta_{k,k'} &\sim \mathcal{N}(0,1)  \text { (effect of intellectual capital)}
 \end{align}
 
-Where $\nu_{k'|k}$ is the fraction of physicists with expertise in $k$ (i.e. with more intellectual capital than average in $k$) that also have expertise in $k'$. 
+Where $\nu_{k'|k}$ is the fraction of physicists with expertise in $k$ (that is, with more intellectual capital than average in $k$) who also have expertise in $k'$ (see Appendix \ref{appendix:knowledge}, Figure \ref{fig:nu}). 
 }\textsuperscript{,}\footnote{In order to fit the model to the data, we use Stan's Hamiltonian Monte-Carlo sampler (HMC is better behaved than Gibbs sampling for such problems).%The variant of the model in \ref{appendix:knowledge} is more complex and a single-point estimate is obtained via gradient-descent instead.
 }. Of course, other covariates can be considered. To illustrate that, Appendix \ref{appendix:knowledge} 
  introduces an alternative model in which the covariate is a vector representing scientists' individual knowledge, thus allowing to measure the effect of specific keywords on transfers between research areas. It is important however to emphasize that models of ecological inference are typically weakly identified, as the data alone sometimes poorly constrain individual values of $\bm{\theta_{ak}}$.  %This warrants some caution when using models such as this one for studying specific individuals (e.g. by inspecting values of $\bm{\theta_{ak}}$ for one individual); the main interest of the model lies in its ability to capture the average effect of certain covariates (e.g. social capital). This weakness converges with the criticism of ecological inference raised by the ``ecological fallacy'' argument \citep{freedman1999ecological} according to which they are limits to what can be inferred about individuals based on aggregate data. 
@@ -829,7 +829,9 @@ At the macroscopic level, the model unveiled the decline of neutrinos physics as
 
 Then, leveraging the connection between our model and Optimal Transport, we showed that the reallocation of research efforts among scientists appears to be mainly structured by ``learning costs''. This supports our view that much of scientists' strategic behavior in response to change consists of balancing learning costs with the incentives for adaptation that they receive.
 
-The relationship between capital and change in scientists' interests was also explored. The diversity of intellectual and social resources was found to be positively associated with change: diversity promotes adaptability under new circumstances. Diversifying research portfolios is a rational strategy when the future is uncertain; however, enforcing diversity can lead to suboptimal allocations of research efforts under known circumstances. For instance, that physicists expert in particle colliders have secured long-term research opportunities (thanks to very large investments in particle accelerators like the \gls{lhc}) may explain why they are particularly specialized and conservative. There is also evidence that physicists specialized in dark matter have been consolidating their specialization, presumably since the increasing popularity of the topic encouraged them to ``double-down'' their investment in this research area. Increased share of intellectual capital in certain research areas is associated with stronger commitment to these research areas, and therefore specialized scientists may be more likely to remain trapped in a ``sunk cost'' fallacy as their expertise is unfit for new circumstances. However, specialized scientists can offset the risks associated with specialization by diversifying their social network. In fact, social capital plays a more significant role as scientists expand their research agenda further beyond their specialization, as observed by \citealt{Tripodi2020}. Unlike diversity, ``power'' (that is, the magnitude of social capital) and institutional stability are associated with more stability and conservatism in research interests. In particular, ``power'' decreases the probability of leaving research areas.
+The relationship between capital and change in scientists' interests was also explored. The diversity of intellectual and social resources was found to be positively associated with change: diversity promotes adaptability under new circumstances. Diversifying research portfolios is a rational strategy when the future is uncertain; however, enforcing diversity can lead to suboptimal allocations of research efforts under known circumstances. For instance, that physicists expert in particle colliders have secured long-term research opportunities (thanks to very large investments in particle accelerators like the \gls{lhc}) may explain why they are particularly specialized and conservative. There is also evidence that physicists specialized in dark matter have been consolidating their specialization, presumably since the increasing popularity of the topic encouraged them to ``double-down'' their investment in this research area. Increased shares of intellectual capital in certain research areas is associated with stronger commitment to these research areas, and therefore specialized scientists may be more likely to remain trapped in a ``sunk cost'' fallacy as their expertise is unfit for new circumstances. However, specialized scientists can offset the risks associated with specialization by diversifying their social network. In fact, social capital plays a more significant role as scientists expand their research agenda further beyond their specialization, as observed by \citealt{Tripodi2020}. Unlike diversity, ``power'' (that is, the magnitude of social capital) and institutional stability are associated with more stability and conservatism in research interests. In particular, ``power'' decreases the probability of leaving research areas.
+
+As prior research has demonstrated that changes in scientists' interests were generally gradual, we have proposed to characterize these changes in terms of a typology of incremental change enrooted in historical institutionalism. Adaptation strategies include the ``conversion'' of prior knowledge to new purposes, the ``layering'' of additional research interests via the acquisition of new knowledge, or the ``displacement'' of former research commitments. In fact, this typology has been shown to account for how organizations like DESY and SLAC have transitioned from high-energy physics to multi-purpose photon science. In applying the typology to individuals, we do not imply that they behave like institutions. Nevertheless, institutions inherited from the past do face a similar challenge in that they need to adapt to changing circumstances that may have not been foreseen, in a way that may clash with their rigidity.
 
 % Disparities among research areas were found. ``Collider physics'' is an especially conservative research area, possibly as the result of the long time-scales of particle colliders such as the \gls{lhc}. 
 
@@ -1068,13 +1070,24 @@ As shown in Figure \ref{fig:capital_measures}, the entropic measure of diversity
 
 \subsection{Learning costs}
 
-The MCMC algorithm from \citet{Chu2021} is run on 500,000 iterations. The expected value of $C_{k,k'}$ are shown in Figure \ref{fig:cost_knowledge}, as a function of the knowledge gap from $k$ to $k'$.
+The MCMC algorithm from \citet{Chu2021} is run on 500,000 iterations. The expected value of $C_{k,k'}$ are shown in Figure \ref{fig:cost_knowledge}, as a function of the knowledge gap from $k$ to $k'$. The knowledge gap is $1-\nu_{k'|k}$; it measures the fraction of experts in a research area $k$ who do not hold any expertise in the research area $k'$ (the matrix $\nu$ is shown in Figure \ref{fig:nu}).
 
-\begin{figure}[H]
+
+\begin{figure}[h]
+\begin{subfigure}{.45\textwidth}
     \centering
-    \includegraphics[width=0.8\textwidth]{plots/cost_vs_nu_knowledge.eps}
-    \caption{Cost of shifting a unit of cohort's research efforts from $k$ to $k'$ as a function of the fraction of physicists with expertise in $k'$ among those with expertise in $k$.}
+    \includegraphics[width=1.15\textwidth]{plots/cost_vs_nu_knowledge.eps}
+    \caption{Cost of shifting a unit of cohort's research efforts from $k$ to $k'$ as a function of the fraction of physicists with expertise in $k'$ among those with expertise in $k$ ($\nu_{k'|k}$).}
     \label{fig:cost_knowledge}
+\end{subfigure}\hfill%
+\begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=1.15\textwidth]{plots/ei_R_control.eps}
+    \caption{Fraction $\nu_{k'|k}$ of physicists with expertise in the horizontal research area ($k$) who also hold expertise in the vertical research area ($k'$).}
+    \label{fig:nu}
+\end{subfigure}
+\caption{\textbf{Learning costs and knowledge gap.}}
+\label{fig:knowledge}
 \end{figure}
 
 
