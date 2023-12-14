@@ -86,22 +86,18 @@
 % \usepackage[misc]{ifsym}
 \newcommand*{\affaddr}[1]{#1} 
 \newcommand*{\affmark}[1][*]{\textsuperscript{#1}}
+\newcommand*{\email}[1][*]{\texttt{#1}}
 
-\author{Lucas Gautheron}
+\author{Lucas Gautheron\protect\affmark[1,2]}
 
-% \author{Lucas Gautheron \protect\affmark[1,2]}
-    
-% \institute{
-%  Lucas Gautheron \\   \email{lucas.gautheron@gmail.com}\\ORCID: 0000-0002-3776-3373\\\\
-%  \affaddr{\affmark[1]Interdisciplinary Centre for Science and Technology Studies (IZWT), University of Wuppertal, Germany}\\
-%  \affaddr{\affmark[2]Sciences Po, médialab, Paris, France}
-% }
 
 \date{}
 
 \begin{document}
 
 \maketitle
+
+
 
 % \begin{abstract}
 %     How scientists navigate between the need to capitalize on their prior knowledge by specializing, and the need to adapt to evolving research opportunities? This paper proposes an unsupervised model that uses scientific abstracts and authorship data for unveiling transformations in scientists' research portfolios in response to changes in their field, and the effect of their intellectual, social, and institutional resources on their trajectories. The model is applied to a cohort of $N=2\,195$ high-energy physicists between 2000 and 2020. %The analysis reveals major shifts from the physics of neutrinos and the electroweak sector toward dark matter, and from string theory to black holes and the holographic principle. 
@@ -114,6 +110,14 @@
 \end{abstract}
 
 
+\ \\
+
+  \email{lucas.gautheron@gmail.com}\\ORCID: 0000-0002-3776-3373\\
+ Conceptualization, Methodology, Software, Formal analysis, Data Curation, Writing - Original Draft, Visualization\\\\
+ \affaddr{\affmark[1]Interdisciplinary Centre for Science and Technology Studies (IZWT), University of Wuppertal, Germany}\\
+ \affaddr{\affmark[2]Département d'Études Cognitives, École Normale Supérieure, Paris, France}
+ 
+ \pagebreak
 
 
 % \keywords{XXX}
