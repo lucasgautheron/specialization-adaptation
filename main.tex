@@ -653,14 +653,14 @@ Unsurprisingly, both research areas that have shrunk considerably have a signifi
     \label{fig:change_score_effect}
 \end{figure}
 
-The change score $c_a$ ignores the cognitive gap between research areas. Figure \ref{fig:disruption_score_effect} in Appendix \ref{appendix:robustness} shows that, using an alternative measure of change (``disruption'') that takes into account cognitive distance, the diversity of social capital has a much larger effect ($\mu(\beta)=0.28$ instead of $0.091$). Moreover, using the Stirling index (rather than entropy) as a measure of diversity does not qualitatively change the previous results (see Figure \ref{fig:change_score_effect_stirling}, Appendix \ref{appendix:robustness}). A manual inspection of the 20 least and most conservative physicists of the cohort is conducted in Appendix \ref{appendix:cases} and is found to be consistent with these findings.
+The change score $c_a$ ignores the cognitive gap between research areas. Figure \ref{fig:disruption_score_effect} in Appendix \ref{appendix:robustness} shows that, using an alternative measure of change (``disruption'') that takes into account cognitive distance, the diversity of social capital has a much larger effect ($\mu(\beta)=0.28$ instead of $0.091$). Moreover, using the Stirling index (rather than entropy) as a measure of diversity does not qualitatively change the previous results (see Table \ref{table:summary_change_disruption}, Appendix \ref{appendix:robustness}). A manual inspection of the 20 least and most conservative physicists of the cohort is conducted in Appendix \ref{appendix:cases} and is found to be consistent with these findings.
 
 \subsubsection{Diversification of research interests versus consolidation of expertise}
 
 Research portfolios can be altered by two very opposite strategies. On the one hand, they can be expanded through the addition of new research areas; we might call such a strategy ``diversification''. On the other hand, research portfolios can be narrowed by deserting certain research areas and concentrating increasingly on a core specialization (Figure \ref{fig:research-agenda} illustrates how this can happen, whether via ``conversion'' or ``displacement''). To explore how physicists choose between these two strategies, we evaluate the effect the factors previously considered on the probability that physicists have i) entered at least one new research area in between the two periods or ii) exited one research area (see the specification of the model in Appendix \ref{appendix:enter-exit-model})\footnote{A research area $k$ is considered ``entered'' by $a$ when $x_{ak}<\frac{1}{N}\sum_{a'}x_{a'k}$ and $y_{ak}>\frac{1}{N}\sum_{a'}y_{a'k}$; conversely, a research area is considered exited when $x_{ak}>\frac{1}{N}\sum_{a'}x_{a'k}$ and $y_{ak}<\frac{1}{N}\sum_{a'}y_{a'k}$.}.
 
 The results are shown in Figure \ref{fig:diversification_score_effect}. The diversity of intellectual capital has a strong positive effect on the probability of exiting a research area; intuitively, scientists with diverse interests can afford to disengage from certain research areas. Excess diversity of social capital increases the probability of entering new research areas, but has no discernible effect on the probability of exiting research areas. In contrast, ``power'' significantly decreases the probability of leaving a research area. This suggests that having many collaborators allows one to remain committed to many research areas with minimal personal investment, thus stabilizing scientists' research agendas (as previously observed). Moreover, ``power'' also decreases the probability to of entering new research areas; this suggests that powerful scientists have less incentives to invest resources in new topics. String theory \& supergravity has a significant positive effect of both entering and exiting research areas; most likely, many physicists have operated a displacement, by replacing this area with a new one. ``Collider physics'', however, significantly decreases the probability of entering new areas. Indeed, the \gls{lhc} has secured this research area for the decades to come: %Indeed, the epistemic returns of the \gls{lhc} increase with the amount data collected, and therefore with its operating time. Moreover, the large investments that were necessary for the \gls{lhc} tend to justify that it should be exploited as long as possible in order to make the best out of it.
-for instance, the HL-LHC project (High-Luminosity \gls{lhc}), which consists in upgrading the LHC in order to higher collision rates, is scheduled to start in 2029 at the time of writing\footnote{See \url{https://home.cern/science/accelerators/high-luminosity-lhc}. Note that until a successor to the \gls{lhc} is under active development, its prolongation can help preserve the know-how necessary for the design and operation of such complex experiments.}. ``Dark matter'' has a negative effect on the probability of entering a new research area, possibly because scientists with prior commitment to this research area had less incentive to diversify their research portfolio and more incentive to focus increasingly on this topic given its success over the following years. Again, these conclusions hold as an alternative measure of diversity is considered (\ref{appendix:robustness}, Figure \ref{fig:diversification_score_stirling}) and if ``brokerage'' is used as a measure of power.
+for instance, the HL-LHC project (High-Luminosity \gls{lhc}), which consists in upgrading the LHC in order to higher collision rates, is scheduled to start in 2029 at the time of writing\footnote{See \url{https://home.cern/science/accelerators/high-luminosity-lhc}. Note that until a successor to the \gls{lhc} is under active development, its prolongation can help preserve the know-how necessary for the design and operation of such complex experiments.}. ``Dark matter'' has a negative effect on the probability of entering a new research area, possibly because scientists with prior commitment to this research area had less incentive to diversify their research portfolio and more incentive to focus increasingly on this topic given its success over the following years. Again, these conclusions hold as an alternative measure of diversity is considered (\ref{appendix:robustness}, Table \ref{table:summary_entered_exited}) and if ``brokerage'' is used as a measure of power.
  
 % \begin{figure}[h]
 %     \centering
@@ -914,29 +914,26 @@ The same model structure is used for the probability of having exited a research
     \label{fig:disruption_score_effect}
 \end{figure}
 
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{plots/change_score_effects_stirling_magnitude.eps}
+%     \caption{\textbf{Effect of standardized measures of intellectual and social capital (with diversity measured via the Stirling index), and position stability on the amplitude of changes in high-energy physicists' interests (as measured by the change score $c_a$)}. }
+%     \label{fig:change_score_effect_stirling}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{plots/change_score_effects_stirling_magnitude.eps}
-    \caption{\textbf{Effect of standardized measures of intellectual and social capital (with diversity measured via the Stirling index), and position stability on the amplitude of changes in high-energy physicists' interests (as measured by the change score $c_a$)}. }
-    \label{fig:change_score_effect_stirling}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{plots/exited_score_effects_stirling_magnitude.eps}
-    \caption{\textbf{Effect of capital (with diversity measured via the Stirling index) and position stability on the probability of entering new research areas or exiting previously explored ones.}. Bars indicate 95\% credible intervals.}
-    \label{fig:diversification_score_stirling}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{plots/exited_score_effects_stirling_magnitude.eps}
+%     \caption{\textbf{Effect of capital (with diversity measured via the Stirling index) and position stability on the probability of entering new research areas or exiting previously explored ones.}. Bars indicate 95\% credible intervals.}
+%     \label{fig:diversification_score_stirling}
+% \end{figure}
 
 \renewcommand{\arraystretch}{2}
-\fontsize{7}{8}\selectfont\input{tables/summary_change_disruption}
-\normalsize
+\fontsize{6}{7}\selectfont\input{tables/summary_change_disruption}\normalsize
 \renewcommand{\arraystretch}{1}
 
 \renewcommand{\arraystretch}{2}
-\fontsize{7}{8}\selectfont\input{tables/summary_entered_exited}
-\normalsize
+\fontsize{6}{7}\selectfont\input{tables/summary_entered_exited}\normalsize
 \renewcommand{\arraystretch}{1}
 
 % \section{\label{appendix:macro}Macroscopic transfers}
