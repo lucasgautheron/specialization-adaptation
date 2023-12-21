@@ -859,7 +859,7 @@ The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 500,000 iterations
 \begin{subfigure}{.45\textwidth}
     \centering
     \includegraphics[width=1.15\textwidth]{plots/cost_vs_nu_knowledge.eps}
-    \caption{Cost of shifting a unit of cohort's research efforts from $k$ to $k'$ as a function of the fraction of physicists with expertise in $k'$ among those with expertise in $k$ ($\nu_{kk'}$).}
+    \caption{Cost of shifting a unit of cohort's research attention from $k$ to $k'$ as a function of the fraction of physicists with expertise in $k'$ among those with expertise in $k$ ($\nu_{kk'}$).}
     \label{fig:cost_knowledge}
 \end{subfigure}\hfill%
 \begin{subfigure}{0.45\textwidth}
@@ -928,13 +928,8 @@ The same model structure is used for the probability of having exited a research
 %     \label{fig:diversification_score_stirling}
 % \end{figure}
 
-\renewcommand{\arraystretch}{2}
-\fontsize{6}{7}\selectfont\input{tables/summary_change_disruption}\normalsize
-\renewcommand{\arraystretch}{1}
-
-\renewcommand{\arraystretch}{2}
-\fontsize{6}{7}\selectfont\input{tables/summary_entered_exited}\normalsize
-\renewcommand{\arraystretch}{1}
+\input{tables/summary_change_disruption}
+\input{tables/summary_entered_exited}
 
 % \section{\label{appendix:macro}Macroscopic transfers}
 

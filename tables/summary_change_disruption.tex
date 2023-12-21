@@ -2,11 +2,11 @@
 \centering
 \caption{Effect of each variable on (a) the change score and (b) the disruption score for each model. The reference model uses entropy as the diversity measure $D$ and the magnitude of intellectual capital as a measure of power $P$. Values indicate the mean posterior effect size and the 95\% credible interval. Significant effects are shown in bold.}
 \label{table:summary_change_disruption}
-\begin{tabular}{lllllll}
+\renewcommand{\arraystretch}{2}\fontsize{6}{7}\selectfont\begin{tabular}{lllllll}
 \toprule
-metric & \multicolumn{3}{c}{Change score ($c_a$)} & \multicolumn{3}{c}{Disruption score ($d_a$)} \\
-model &                                Reference &                      $D=\text{Stirling}$ &                     $P=\text{Brokerage}$ &                                Reference &                      $D=\text{Stirling}$ &                     $P=\text{Brokerage}$ \\
-variable                                  &                                          &                                          &                                          &                                          &                                          &                                          \\
+Dep. variable & \multicolumn{3}{c}{Change score ($c_a$)} & \multicolumn{3}{c}{Disruption score ($d_a$)} \\
+Model &                                Reference &                      $D=\text{Stirling}$ &                     $P=\text{Brokerage}$ &                                Reference &                      $D=\text{Stirling}$ &                     $P=\text{Brokerage}$ \\
+Predictor                                 &                                          &                                          &                                          &                                          &                                          &                                          \\
 \midrule
 \textbf{Intellectual capital (diversity)} &  $\bm{+0.28}\substack{+0.043 \\ -0.043}$ &  $\bm{+0.28}\substack{+0.041 \\ -0.041}$ &  $\bm{+0.22}\substack{+0.043 \\ -0.043}$ &    $\bm{+0.04}\substack{+0.04 \\ -0.04}$ &     $\bm{+1.2}\substack{+0.47 \\ -0.48}$ &         $+0.04\substack{+0.04 \\ -0.04}$ \\
 \textbf{Social capital (diversity)}       &    $\bm{+0.09}\substack{+0.04 \\ -0.04}$ &  $\bm{+0.07}\substack{+0.042 \\ -0.041}$ &    $\bm{+0.06}\substack{+0.04 \\ -0.04}$ &  $\bm{+0.28}\substack{+0.045 \\ -0.044}$ &    $\bm{+0.85}\substack{+0.47 \\ -0.48}$ &  $\bm{+0.22}\substack{+0.043 \\ -0.044}$ \\
@@ -29,5 +29,5 @@ QCD                                       &           $-0.04\substack{+0.1 \\ -0
 Quantum Field Theory                      &           $+0.04\substack{+0.2 \\ -0.2}$ &         $+0.12\substack{+0.25 \\ -0.21}$ &           $+0.04\substack{+0.2 \\ -0.2}$ &        $-0.006\substack{+0.02 \\ -0.03}$ &       $+0.0001\substack{+0.03 \\ -0.03}$ &        $-0.002\substack{+0.01 \\ -0.02}$ \\
 AdS/CFT                                   &          $+0.005\substack{+0.2 \\ -0.2}$ &           $+0.08\substack{+0.3 \\ -0.2}$ &          $+0.009\substack{+0.2 \\ -0.2}$ &        $-0.007\substack{+0.02 \\ -0.03}$ &        $-0.001\substack{+0.04 \\ -0.03}$ &        $-0.003\substack{+0.02 \\ -0.02}$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}\normalsize\renewcommand{\arraystretch}{1}
 \end{table}
