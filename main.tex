@@ -362,9 +362,11 @@ The ``power'' dimension of social capital is evaluated as the \textit{magnitude}
 
 \begin{equation}
     P(\bm{S_a})\equiv \sum_k S_{ak} = \sum_{c \in \text{co-authors}(a)} w_{ac}
-\end{equation}. The magnitude of social capital is therefore the amount of collaborators weighed by the strength of each relationship. Our measures of diversity and power therefore depart from \citealt{Abbasi2014} in which diversity is conflated with network size and power with performance. By combining semantic and authorship data, our approach assesses diversity more directly. % -- here, the logarithm conveys that gains from going from, say, 50 collaborators to 51 collaborators are much lesser than the benefits of going from, say, three to four collaborators. 
+\end{equation}
 
-For each of these three measures (diversity of intellectual capital, excess diversity of social capital, and magnitude of social capital -- power --), an alternative measure is also proposed for robustness assessment (based on Stirling's index for diversity and brokerage for power). A comparison of these six measures is provided in Appendix \ref{appendix:capital_validation}. 
+The magnitude of social capital is therefore the amount of collaborators weighed by the strength of each relationship. Our measures of diversity and power therefore depart from \citealt{Abbasi2014} in which diversity is conflated with network size and power with performance. By combining semantic and authorship data, our approach assesses diversity more directly. % -- here, the logarithm conveys that gains from going from, say, 50 collaborators to 51 collaborators are much lesser than the benefits of going from, say, three to four collaborators. 
+
+For each of these (diversity and power), an alternative measure is also considered for robustness assessment (based on Stirling's index for diversity and brokerage for power). All these measures are compared in Appendix \ref{appendix:capital_validation}. 
 
 \subsection{\label{sec:model}Modelling trajectories}
 
@@ -837,7 +839,7 @@ The predictive power of the model can be assessed by evaluating the total variat
 
 \subsection{\label{appendix:optimal_transport}Learning costs and optimal transport}
 
-The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 500,000 iterations. The mean posterior values of $C_{k,k'}$ are shown in Figure \ref{fig:knowledge_hep}, as a function of the linguistic gap from $k$ to $k'$, $\Delta_{k,k'}=H(\bm{\varphi_{k'}}+\bm{\varphi_k})-H(\bm{\varphi_k})$ (where $H$ is the Shannon entropy and $\bm{\varphi_{}},\bm{\varphi_{k'}}$ are the vocabulary distributions of $k$ and $k'$). For replication purposes, the same procedure is performed  on a different dataset -- the ACL anthology corpus  of computational linguistics research \citep{acl_anthology_corpus} -- using the same procedure. The correlation is strong for the ACL cohort although it is smaller ($R=0.82$ instead of $0.96$). The difference could be explained by a number of reasons: a) the smaller sample size of the ACL cohort ($N = 578$ instead of $N = 2195$); b) the cognitive scale (on which the overlap in vocabulary between research areas depends) is not commensurable across the two corpora.
+The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 500,000 iterations. The mean posterior values of $C_{k,k'}$ are shown in Figure \ref{fig:knowledge_hep}, as a function of the linguistic gap from $k$ to $k'$, $\Delta_{k,k'}=H(\bm{\varphi_{k'}}+\bm{\varphi_k})-H(\bm{\varphi_k})$ (where $H$ is the Shannon entropy and $\bm{\varphi_{k}},\bm{\varphi_{k'}}$ are the vocabulary distributions of $k$ and $k'$, such that $\phi_{kw}$ is the frequency of the keyword $w$ in the topic $k$). For replication purposes, the same procedure is performed  on a different dataset -- the ACL anthology corpus  of computational linguistics research \citep{acl_anthology_corpus} -- using the same procedure. The correlation is strong for the ACL cohort although it is smaller ($R=0.82$ instead of $0.96$). The difference could be explained by a number of reasons: a) the smaller sample size of the ACL cohort ($N = 578$ instead of $N = 2195$); b) the cognitive scale (on which the overlap in vocabulary between research areas depends) is not commensurable across the two corpora.
 
 \begin{figure}[h]
 \centering
