@@ -113,7 +113,7 @@
  \affaddr{\affmark[1]Interdisciplinary Centre for Science and Technology Studies (IZWT), University of Wuppertal, Germany}\\
  \affaddr{\affmark[2]Département d'Études Cognitives, École Normale Supérieure, Paris, France}
 
- \paragraph{Keywords}{adaptation; specialization; cultural evolution; science of science; human mobility; optimal transport}
+ \paragraph{Keywords}{adaptation; specialization; cultural evolution; science of science; computational social science; optimal transport}
 
  
  \pagebreak
@@ -595,7 +595,7 @@ We propose a change score $c_a$ that measures how much the research agenda of a 
     c_a \equiv \mathrm{d}_{\text{TV}}(\bm{x_a},\bm{y_a}) = \frac{1}{2} \sum_k |y_{ak}-x_{ak}|
 \end{equation}
 
-$c_a$ is comprised between 0 (if research attention has remained identically distributed) and 1 (if the research agenda has been entirely redistributed). The distribution of $c_a$ (Figure \ref{fig:change_scores}) shows that large values are rare, with 50\% of authors lying between 0.21 and 0.40. However, the absolute value of $c_a$ has limited interpretability, given that it depends on the choice of ``cognitive scope'' (the broadness of research areas) and the duration of the time periods considered  \citep{Gieryn1978}. Moreover, $c_a$ is never expected to be exactly zero due to random fluctuations.
+$c_a$ is comprised between 0 (if research attention has remained identically distributed) and 1 (if the research agenda has been entirely redistributed). The distribution of $c_a$ (Figure \ref{fig:change_scores}) shows that large values are rare, with 50\% of authors lying between 0.21 and 0.40. However, the absolute value of $c_a$ has limited interpretability, given that it depends on the choice of ``cognitive scope'' (the broadness of research areas) and the duration of the time periods considered  \citep{Gieryn1978}. Moreover, $c_a$ is never expected to be exactly zero due to random fluctuations and measurement noise.
 
 \begin{figure}[h]
     \centering
@@ -712,8 +712,7 @@ We have characterized renewal strategies of research portfolios in terms of a ty
 %     \item \citep{muzellec2017tsallis} OT at the community level
 % \end{itemize}
 
-Throughout the paper, various methodological limitations were raised. Most of them pertain to data selection. For example, the requirement on the quantity of authors' publications makes the cohort ``unrepresentative'' and implies a survivorship bias. A second issue, already noted by \citet{Gieryn1978}, lies in the arbitrariness in the choice of cognitive scope. Previous works (e.g. \citealt{Jia2017,Aleta2019,Tripodi2020}) have typically relied on the hierarchical \gls{pacs} classification of physics literature, such that cognitive scales were imposed. For this work, the literature was divided into 16 topics that captured the features of change in the epistemic landscape discussed above, i.e. the rise of new probes of the cosmos, but other scales could have been considered. However, the topic model recovers a flat structure that does not explain the correlations between different research areas. A hierarchical structure of knowledge might be more suitable for capturing what allows physicists to switch from one research area to another. %Finally, it can be hard to disentangle the effect of scientists' own intellectual capital from that or their social capital \citep{Tripodi2020}. 
-
+Throughout the paper, various methodological limitations were raised. Most of them pertain to data selection. For example, the requirement on the quantity of authors' publications makes the cohort ``unrepresentative'' and implies a survivorship bias. A second issue, already noted by \citet{Gieryn1978}, lies in the arbitrariness in the choice of cognitive scope. Previous works (e.g. \citealt{Jia2017,Aleta2019,Tripodi2020}) have typically relied on the hierarchical \gls{pacs} classification of physics literature, such that cognitive scales were imposed. For this work, the literature was divided into 16 topics that captured the features of change in the epistemic landscape discussed above, i.e. the rise of new probes of the cosmos, but other scales could have been considered. However, the topic model recovers a flat structure that does not explain the correlations between different research areas. A hierarchical structure of knowledge might be more suitable for capturing what allows physicists to switch from one research area to another. Moreover, although the unsupervised topic model approach is arguably a better proxy to linguistic and cognitive behavior, it introduces noise which could in part explain the low predictive power of the models of change in scientists' research agendas.
 
 \paragraph{Acknowledgements}{I thank Thomas Heinze, Radin Dardashti, Elisa Omodei, and Ulysse Lojkine for useful discussions; Georges Ricci for his invitation to look into Optimal Transport; the LATTICE lab in Montrouge for the opportunity to exchange about this work; and Elizabeth Zanghi for corrections.}
 
@@ -840,8 +839,7 @@ The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 500,000 iterations
     \text{ and } p_{kk'} &= \mathrm{softmax}(\beta (1-\nu_{kk'}))\\
 \end{align}
 
-The second equation is sometimes referred to as the entropic prior \citep{skilling1991bayesian,MacKay1995}. The mean posterior values of $C_{k,k'}$ are shown in Figure \ref{fig:cost_knowledge}, as a function of the knowledge gap from $k$ to $k'$. The knowledge gap  $1-\nu_{kk'}$ is the fraction of experts in $k$ who do not hold significant expertise in $k'$ ($\nu$ is shown in Figure \ref{fig:nu}). 
-
+The second equation is sometimes referred to as the entropic prior \citep{skilling1991bayesian,MacKay1995}. The mean posterior values of $C_{k,k'}$ are shown in Figure \ref{fig:cost_knowledge}, as a function of the knowledge gap from $k$ to $k'$. The knowledge gap  $1-\nu_{kk'}$ is the fraction of experts in $k$ who do not hold significant expertise in $k'$ ($\nu$ is shown in Figure \ref{fig:nu}).  A significant correlation is found ($R=-0.72$). This is true also for the replication dataset of computational linguistics research (Appendix \ref{appendix:hep_vs_acl}), for which $R=-0.63$.
 
 \begin{figure}[H]
     \centering
@@ -849,8 +847,6 @@ The second equation is sometimes referred to as the entropic prior \citep{skilli
     \caption{Cost matrix $C_{kk'}$. The cost matrix represents the cost of shifting a unit of cohort's research attention from $k$ to $k'$.}
     \label{fig:cost_matrix}
 \end{figure}
-
-
 
 \begin{figure}[H]
 \begin{subfigure}{.45\textwidth}
