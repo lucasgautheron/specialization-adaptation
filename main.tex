@@ -372,7 +372,7 @@ For each of these (diversity and power), an alternative measure is considered fo
 
 \subsection{\label{sec:model}Modelling trajectories}
 
-Physicists' trajectories are modeled with a hierarchical multinomial logistic model. The intuition underlying the model is illustrated in Figures \ref{fig:model_schema_a},\ref{fig:model_schema_b},\ref{fig:model_schema_c}, and a more formal representation of the model is given in Figure \ref{fig:model_structure}. The occurrences of keywords that belong to each research are $k$ in papers by $a$ in the late time period, $\bm{Y_{a}} \in \mathbb{R}^K$, are assumed to be a function of the initial research portfolio ($\bm{X_{a}}$), thus capturing the intuition that research agendas are transformed via strategic transfers of knowledge from one research area to another (Figure \ref{fig:research-agenda}). $\bm{Y_{a}}$ is also a function of a mixing matrix $\theta_a$ that measures the fraction of attention redistributed to different research areas. $\theta_a$ is drawn from a hierarchical process, thus capturing the ``average'' cohort behavior. It is also a function of covariates ($\bm{Z_a}$ in Figure \ref{fig:model_structure}), in this case intellectual and social capital, which are hypothesized to affect individual behaviors. %Of course, one could consider the effect of many other covariates; for instance, the effect of holding specific bits of knowledge (models, methods, etc.).
+Physicists' trajectories are modeled with a hierarchical multinomial logistic model. The intuition underlying the model is illustrated in Figures \ref{fig:model_schema_a},\ref{fig:model_schema_b},\ref{fig:model_schema_c}, and a more formal representation of the model is given in Figure \ref{fig:model_structure}. The occurrences of keywords that belong to each research are $k$ in papers by $a$ in the late time period, $\bm{Y_{a}} \in \mathbb{R}^K$, are assumed to be a function of the initial research portfolio ($\bm{X_{a}}$), thus capturing the intuition that research agendas are transformed via strategic transfers of knowledge from one research area to another (Figure \ref{fig:research-agenda}). $\bm{Y_{a}}$ is also a function of a mixing matrix $\theta_a$ that measures the fraction of attention redistributed to different research areas. $\theta_a$ is drawn from a hierarchical process, thus capturing the ``average'' cohort behavior, and also depends on scientists' intellectual and social capital ($\bm{I_a}$ and $\bm{S_a}$). %Of course, one could consider the effect of many other covariates; for instance, the effect of holding specific bits of knowledge (models, methods, etc.).
 Formally speaking, $\bm{Y_{a}}$ is assumed to derive from a multinomial process involving linear combinations of $(x_{ak})$:
 
 \begin{equation}
@@ -528,12 +528,17 @@ Our model is strongly connected to Optimal Transport \citep{muzellec2017tsallis,
         \node [latent](theta) [above of=Y] {$\theta_a$};
         \node [latent](beta) [above of=theta] {$\beta_a$};
         \node [latent](mu) [above of=beta] {$\mu,\Sigma$};
-        \node [obs](cov) [left of=theta] {$\bm{Z_a}$};
+        % \node [obs](cov) [left of=theta] {$\bm{Z_a}$};
+        \node [obs](I) [left of=theta] {$\bm{I_a}$};
+        \node [obs](S) [above of=I] {$\bm{S_a}$};
         \draw [->] (X) edge (Y);
         \draw [->] (theta) edge (Y);
         \draw [->] (beta) edge (theta);
         \draw [->] (mu) edge (beta);
-        \draw [->] (cov) edge (theta);
+        % \draw [->] (cov) edge (theta);
+        \draw [->] (I) edge (theta);
+        \draw [->] (S) edge (theta);
+
         % \draw [->] (v3) edge (v2);
         % \draw [->] (v4) edge (v3);
         % \draw [->] (v0) edge (v5);
@@ -544,7 +549,7 @@ Our model is strongly connected to Optimal Transport \citep{muzellec2017tsallis,
 
      \caption{\textbf{\ref{fig:model_schema_a},\ref{fig:model_schema_b},\ref{fig:model_schema_c}: Physicists' transfers of attention across research areas.} $\bm{x_a}$ and $\bm{y_a}$ are the distributions of scientist $a$'s interests across research areas in two consecutive time periods. $\bm{\theta_{ak}}=(\theta_{akk'})$ represents the fraction of the attention devoted by an author $a$ to a topic $k$ redirected to topics $k' \in \{1,\dots,K\}$, as scientists repurpose their knowledge. By definition, $\sum_{k'} \theta_{akk'}=1$. %If $\theta_{akk'}=1$ for $k=k'$ and 0 for $k\neq k'$, then the research agenda has remained identically distributed.
      \\
-     \textbf{Figure \ref{fig:model_structure}: Hierarchical model}. $\theta_a$ is drawn from a hierarchical process and also depends on  covariates $\bm{Z_a}$ (namely $\bm{I_a}$ and $\bm{S_a}$, intellectual and social ``capital''). Observed variables are represented in gray, latent variables in white.}
+     \textbf{Figure \ref{fig:model_structure}: Hierarchical model}. $\theta_a$ is drawn from a hierarchical process, with intellectual and social ``capital'' ($\bm{I_a}$ and $\bm{S_a}$) as covariates. Observed variables are represented in gray, latent variables in white.}
      \label{fig:ei}
  \end{figure}
 
