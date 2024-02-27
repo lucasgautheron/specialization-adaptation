@@ -655,26 +655,9 @@ The diversity of intellectual capital has a strong positive effect on the probab
 
 \subsubsection{Why diversity promotes change}
 
-Access to diverse cognitive resources promotes change. To see why, it is insightful to look into how the concentration of scientists' intellectual capital in each research area $k$ ($\bm{I_a}=(I_{ak})$) affects their trajectories. In the model introduced in Section \ref{sec:model}, the diagonal coefficients of the $\gamma$ matrix measure the effect of having intellectual resources in a certain area on the commitment to this area. As shown in Figure \ref{fig:intellectual-capital-effect}, most coefficients on the diagonal are significantly positive: physicists with a strong specialization in a research area tend to further exploit and consolidate their specialization in this area.
+Access to diverse cognitive resources promotes change. To see why, it is insightful to look into how the concentration of scientists' intellectual capital in each research area $k$ ($\bm{I_a}=(I_{ak})$) affects their trajectories. In the model introduced in Section \ref{sec:model}, the diagonal coefficients of the $\gamma$ matrix measure the effect of the concentration of intellectual resources in a certain area on the commitment to this area. Most coefficients on the diagonal are significantly positive (10 out of 16, the others are compatible with no effect) (Figure \ref{fig:intellectual-capital-effect}, Appendix \ref{appendix:capital_effect}). , Therefore, physicists with a strong specialization in a research area tend to further exploit and consolidate their specialization in this area.
 
-The effect of social capital on transfers across research areas ($\delta_{kk'}$, Eq. \ref{eq:glm}), is shown in Figure \ref{fig:social-capital-effect}. Statistically significant effects are always positive: scientists tend to redirect attention to research areas in which they have many collaborators involved, in line with a very recent observation by \citeauthor{Venturini2024} \citealt{Venturini2024}.
-
-
-\begin{figure}[h]
-\hspace{-2em}
-\begin{subfigure}{.5\textwidth}
-    \includegraphics[width=1\textwidth]{plots/ei_gamma_control_nu.eps}
-    \caption{Effect of intellectual capital ($\gamma_{kk'}$).}
-    \label{fig:intellectual-capital-effect}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-    \includegraphics[width=1\textwidth]{plots/ei_delta_control_nu.eps}
-    \caption{Effect of social capital ($\delta_{kk'}$).}
-    \label{fig:social-capital-effect}
-\end{subfigure}
-\caption{\textbf{Effect of intellectual and social capital on the magnitude of transfers of attention across research areas}. Rows represent research areas of origin and columns represent target research areas. Stars represent statistical significance ($\ast$: 95\% CL; $\ast\ast$: 99.7\% CL). Effect sizes refer to increases in log odds ($\log {[\theta_{akk'}/(1-\theta_{akk'})]}$, where $\theta_{akk'}$ is the fraction of attention to $k$ redirected to $k'$) per unit of intellectual or social capital in the target research area $k'$.}
-\label{fig:test}
-\end{figure}
+Moreover, the effect of the magnitude of social capital in a research area $k'$ on the magnitude of transfers from $k$ to $k'$ ($\delta_{kk'}$, Eq. \ref{eq:glm}) is generally positive (Figure \ref{fig:social-capital-effect}, Appendix \ref{appendix:capital_effect}): physicists tend to redirect attention to research areas in which they have many collaborators involved, in line with a very recent observation by \citeauthor{Venturini2024} \citealt{Venturini2024}.
 
 The effect of social capital varies across research areas. We find a strong correlation between the effect of social capital ($\delta_{kk'}$), and $\nu_{kk'}\in[0,1]$, the fraction of physicists with more expertise than average in a research area $k'$ among those who have more expertise than average in $k$ (see Eq. \eqref{eq:social_capital_nu}, Section \ref{sec:model}). $\delta_{kk'}$ decreases by 1.5 unit of standard deviation on average as $\nu_{kk'}$ goes from 0 (nobody holds expertise in both research areas $k$ and $k'$) to 1 (everyone with expertise in $k$ has expertise in $k'$). The effect of social capital on shifts between two areas is therefore stronger when it is uncommon to hold expertise in both these areas, in line with a previous finding by \citeauthor{Tripodi2020} \citealt{Tripodi2020}.
 
@@ -959,6 +942,26 @@ Comparing tables \ref{table:low_change} and \ref{table:top_change}, one can see 
 
 \fontsize{6}{7}\selectfont\input{tables/low_change}\normalsize
 \fontsize{6}{7}\selectfont\input{tables/top_change}\normalsize
+
+\subsection{\label{appendix:capital_effect}}
+
+
+
+\begin{figure}[h]
+\hspace{-2em}
+\begin{subfigure}{.5\textwidth}
+    \includegraphics[width=1\textwidth]{plots/ei_gamma_control_nu.eps}
+    \caption{Effect of intellectual capital ($\gamma_{kk'}$).}
+    \label{fig:intellectual-capital-effect}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+    \includegraphics[width=1\textwidth]{plots/ei_delta_control_nu.eps}
+    \caption{Effect of social capital ($\delta_{kk'}$).}
+    \label{fig:social-capital-effect}
+\end{subfigure}
+\caption{\textbf{Effect of intellectual and social capital on the magnitude of transfers of attention across research areas}. Rows represent research areas of origin and columns represent target research areas. Stars represent statistical significance ($\ast$: 95\% CL; $\ast\ast$: 99.7\% CL). Effect sizes refer to increases in log odds ($\log {[\theta_{akk'}/(1-\theta_{akk'})]}$, where $\theta_{akk'}$ is the fraction of attention to $k$ redirected to $k'$) per unit of intellectual or social capital in the target research area $k'$.}
+\label{fig:test}
+\end{figure}
 
 \subsection{\label{appendix:hep_vs_acl}Replication corpus}
 
