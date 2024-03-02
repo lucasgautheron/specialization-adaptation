@@ -550,7 +550,7 @@ Our model is strongly connected to Optimal Transport \citep{muzellec2017tsallis,
     \caption{\label{fig:model_structure}}
 \end{subfigure}
 
-     \caption{\textbf{\ref{fig:model_schema_a},\ref{fig:model_schema_b},\ref{fig:model_schema_c}: Physicists' transfers of attention across research areas.} $\bm{x_a}$ and $\bm{y_a}$ are the distributions of scientist $a$'s interests across research areas in two consecutive time periods. $\bm{\theta_{ak}}=(\theta_{akk'})$ represents the fraction of the attention devoted by an author $a$ to a topic $k$ redirected to topics $k' \in \{1,\dots,K\}$, as scientists repurpose their knowledge. By definition, $\sum_{k'} \theta_{akk'}=1$. %If $\theta_{akk'}=1$ for $k=k'$ and 0 for $k\neq k'$, then the research agenda has remained identically distributed.
+     \caption{\textbf{\ref{fig:model_schema_a},\ref{fig:model_schema_b},\ref{fig:model_schema_c}: Transfers of attention across research areas.} $\bm{x_a}$ and $\bm{y_a}$ are the distributions scientist $a$'s attention across research areas in two consecutive time periods. $\bm{\theta_{ak}}=(\theta_{akk'})$ represents the fraction of the attention devoted by an author $a$ to a topic $k$ redirected to topics $k' \in \{1,\dots,K\}$, as scientists repurpose their knowledge. By definition, $\sum_{k'} \theta_{akk'}=1$. %If $\theta_{akk'}=1$ for $k=k'$ and 0 for $k\neq k'$, then the research agenda has remained identically distributed.
      \\
      \textbf{Figure \ref{fig:model_structure}: Hierarchical model}. $\theta_a$ is drawn from a hierarchical process, with intellectual and social capital ($\bm{I_a}$ and $\bm{S_a}$) as covariates. Observed variables are represented in gray, latent variables in white.}
      \label{fig:ei}
@@ -585,7 +585,7 @@ It is insightful to look at specific careers. For instance, the two physicists w
     }
     \label{fig:J.F.Beacom.1}
 \end{subfigure}
-\caption{\textbf{Trajectory of the two physicists with the most significant shift from Neutrino physics to Dark matter}. The initial distribution of the research agenda is shown in blue, and the late distribution in red. Rows represent research areas of origin and columns represent target research areas.}
+\caption{\textbf{Trajectory of the two physicists who shifted from neutrino physics to dark matter}. The initial research portfolio is shown in blue, and the late one in red.}
 \label{fig:turns_neutrinos_dm}
 \end{figure}
 
@@ -672,7 +672,7 @@ The effect of social capital on transfers across research areas ($\delta_{kk'}$,
     \caption{Effect of social capital ($\delta_{kk'}$).}
     \label{fig:social-capital-effect}
 \end{subfigure}
-\caption{\textbf{Effect of intellectual and social capital on the magnitude of transfers of attention across research areas}. Rows represent research areas of origin and columns represent target research areas. Stars represent statistical significance ($\ast$: 95\% CL; $\ast\ast$: 99.7\% CL). Effect sizes refer to increases in log odds ($\log {[\theta_{akk'}/(1-\theta_{akk'})]}$, where $\theta_{akk'}$ is the fraction of attention to $k$ redirected to $k'$) per unit of intellectual or social capital in the target research area $k'$.}
+\caption{\textbf{Effect of intellectual and social capital on the magnitude of transfers of attention across research areas}. Rows represent research areas of origin and columns represent target research areas. Effect sizes refer to increases in log odds ($\log {[\theta_{akk'}/(1-\theta_{akk'})]}$, where $\theta_{akk'}$ is the fraction of attention to $k$ redirected to $k'$) per unit of intellectual or social capital in the target research area $k'$. Stars indicate credible levels ($\ast$: 95\%; $\ast\ast$: 99.7\%).}
 \label{fig:test}
 \end{figure}
 
