@@ -570,25 +570,6 @@ The most obvious feature is the overall conservatism of physicists toward their 
      \label{fig:sankey}
  \end{figure}
 
-It is insightful to look at specific careers. For instance, the two physicists who made the most abrupt switch from neutrinos to dark matter are shown in Figure \ref{fig:turns_neutrinos_dm}. Physicist A's personal website reads: ``I am working on particle astrophysics and cosmology. In particular, \textit{I am interested in dark matter problem in the Universe, and how to probe it using annihilation products such as energetic gamma rays and neutrinos}. [\dots]  I \textit{started my research career by studying supernova neutrinos from various aspects} [our emphases].''\footnote{\url{https://staff.fnwi.uva.nl/s.ando/eng/Research.html}}. This is therefore an instance of ``conversion'' of prior knowledge to new purposes, one of the forms of change drawn from historical institutionalism represented in Figure \ref{fig:research-agenda}. Similarly, Physicist B started his career in Neutrino Physics with a PhD on the ``Semiclassical Analysis of Solar Neutrino Data''.  His personal webpage reads: ``My main research interests lie at the intersection of the fields of astrophysics, particle physics, and nuclear physics [\dots]. In the past several years, there has been strong growth at this intersection, in part due to new results from the ongoing experiments.''\footnote{\url{https://www.asc.ohio-state.edu/beacom.7/}}. Moreover, Physicist A claims that ``Although [he is] a theoretical astrophysicist, [he] always consider prospects of current or near future generation of experiments and telescopes.''. This supports that experiments create opportunities (and pressures to adapt) that physicists accommodate by building upon their prior knowledge. 
-
-\begin{figure}[h]
-\begin{subfigure}{.45\textwidth}
-    \includegraphics[width=1.15\textwidth]{plots/trajectory_example_S.Ando.1.eps}
-    \caption{Physicist A. %Most associated keywords: super kamiokande, atmospheric neutrino, oscillation, solar neutrino, antineutrino, kamland, reactor, supernova, long baseline, sno
-    }
-    \label{fig:S.Ando.1}
-\end{subfigure}\hfill%
-\begin{subfigure}{0.45\textwidth}
-    \includegraphics[width=1.15\textwidth]{plots/trajectory_example_J.F.Beacom.1.eps}
-    \caption{Physicist B. %Most associated keywords: super kamiokande, icecube, diffuse, atmospheric neutrino, antineutrino, neutrino telescope, high energy neutrino, earth, kamland, extragalactic
-    }
-    \label{fig:J.F.Beacom.1}
-\end{subfigure}
-\caption{\textbf{Trajectory of the two physicists who shifted from neutrino physics to dark matter}. The initial research portfolio is shown in blue, and the late one in red.}
-\label{fig:turns_neutrinos_dm}
-\end{figure}
-
 \subsection{\label{sec:optimal-transport}The structuring effect of learning costs on scientists' behavior}
 
 As research priorities change, research efforts must be efficiently reallocated among scientists, given their prior knowledge. Here, we leverage the similarity between our model of scientists' trajectories and \gls{ot} \citep{muzellec2017tsallis,li2019learning} to formulate the observed behavior in economic terms and demonstrate that the shifts of attention are structured by the minimization of ``learning costs''.
@@ -944,6 +925,26 @@ The same model structure is used for the probability of having exited a research
 % \section{\label{appendix:macro}Macroscopic transfers}
 
 \subsection{\label{appendix:cases}Exploring individual careers}
+
+It can be insightful to look at specific careers. For instance, the two physicists who made the most abrupt switch from neutrinos to dark matter are shown in Figure \ref{fig:turns_neutrinos_dm}. Physicist A's personal website reads: ``I am working on particle astrophysics and cosmology. In particular, \textit{I am interested in dark matter problem in the Universe, and how to probe it using annihilation products such as energetic gamma rays and neutrinos}. [\dots]  I \textit{started my research career by studying supernova neutrinos from various aspects} [our emphases].''\footnote{\url{https://staff.fnwi.uva.nl/s.ando/eng/Research.html}}. This is therefore an instance of ``conversion'' of prior knowledge to new purposes, one of the forms of change drawn from historical institutionalism represented in Figure \ref{fig:research-agenda}. Similarly, Physicist B started his career in Neutrino Physics with a PhD on the ``Semiclassical Analysis of Solar Neutrino Data''.  His personal webpage reads: ``My main research interests lie at the intersection of the fields of astrophysics, particle physics, and nuclear physics [\dots]. In the past several years, there has been strong growth at this intersection, in part due to new results from the ongoing experiments.''\footnote{\url{https://www.asc.ohio-state.edu/beacom.7/}}. Moreover, Physicist A claims that ``Although [he is] a theoretical astrophysicist, [he] always consider prospects of current or near future generation of experiments and telescopes.''. This supports that experiments create opportunities (and pressures to adapt) that physicists accommodate by building upon their prior knowledge. 
+
+\begin{figure}[h]
+\begin{subfigure}{.45\textwidth}
+    \includegraphics[width=1.15\textwidth]{plots/trajectory_example_S.Ando.1.eps}
+    \caption{Physicist A. %Most associated keywords: super kamiokande, atmospheric neutrino, oscillation, solar neutrino, antineutrino, kamland, reactor, supernova, long baseline, sno
+    }
+    \label{fig:S.Ando.1}
+\end{subfigure}\hfill%
+\begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=1.15\textwidth]{plots/trajectory_example_J.F.Beacom.1.eps}
+    \caption{Physicist B. %Most associated keywords: super kamiokande, icecube, diffuse, atmospheric neutrino, antineutrino, neutrino telescope, high energy neutrino, earth, kamland, extragalactic
+    }
+    \label{fig:J.F.Beacom.1}
+\end{subfigure}
+\caption{\textbf{Trajectory of the two physicists who shifted from neutrino physics to dark matter}. The initial research portfolio is shown in blue, and the late one in red.}
+\label{fig:turns_neutrinos_dm}
+\end{figure}
+
 
  Tables \ref{table:low_change} and \ref{table:top_change} show the 20 most conservative and least conservative physicists. Measures of the diversity of intellectual capital ($D(\bm{I_a})$) and social capital ($D(\bm{S_a})$) are included. Table \ref{table:low_change} shows the physicists who have been the most conservative towards their research agenda. Interestingly, 15 out of 20 are specialized in ``Collider physics'', in line with the above observation that this particular research area is more specialized.
 % ``Neutrinos and flavor physics'' occurs several times as well. This might seem contradicting with the finding that this research area is associated with higher change scores. However, Neutrinos physics remains a significant research area to which many physicists are still committed. For instance, S.~Goswami's started her career in the late 1990s, working on neutrinos oscillations \footnote{\url{https://en.wikipedia.org/wiki/Srubabati_Goswami}} and has remained dedicated to this research area after what she describes as the ``golden age'' of neutrino physics (i.e. the early 2000s, \footnote{\url{https://www.ias.ac.in/public/Resources/Initiatives/Women_in_Science/Contributors/srubabati.pdf}}).
