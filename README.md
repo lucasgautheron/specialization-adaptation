@@ -7,6 +7,8 @@ This repository contains the source of the paper "Balancing Specialization and A
 The repository relies on DataLad, a git and git-annexed based software for reproducible research and data sharing.
 DataLad installation instructions can be found [here](https://handbook.datalad.org/en/latest/intro/installation.html). 
 
+If you do not want to use DataLad and just want to take a look at the code and data from your browser, please go to https://gin.g-node.org/lucasgautheron/adaptation_specialization_material.
+
 To install the repository and all the dependencies (code and data):
 
 ```bash
