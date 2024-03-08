@@ -829,7 +829,7 @@ As shown in Figure \ref{fig:capital_measures}, the entropic measure of diversity
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{plots/Fig12.eps}
-    \caption{\textbf{Correlation between different measures of capital}. Measures considered in this analysis are shown in bold. Alternative measures are shown for comparison purposes. By construction, excess social diversity is orthogonal to intellectual diversity. }
+    \caption{\textbf{Correlation between different measures of capital}. Measures considered in priority in this analysis are shown in bold. Alternative measures are shown for comparison purposes. By construction, excess social diversity is orthogonal to intellectual diversity ($R=0$). }
     \label{fig:capital_measures}
 \end{figure}
 
@@ -841,7 +841,7 @@ The predictive power of the model can be assessed by evaluating the total variat
 
 \subsection{\label{appendix:optimal_transport}Learning costs and optimal transport}
 
-The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 500,000 iterations of the ``MetroMC'' algorithm, using a ``P1'' prior (that is, a prior such that $\sum_{kk'}C_{kk'}=C_0=\mathrm{cst}$). More precisely, we assume that:
+The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 500,000 iterations of the ``MetroMC'' algorithm, using what the authors call a ``P1'' prior (that is, a prior such that $\sum_{kk'}C_{kk'}=C_0=\mathrm{cst}$). More precisely, we assume that:
 
 \begin{align}
     P(c_{kk'}|p_{kk'}) &= \dfrac{1}{Z}\dfrac{1}{\displaystyle\prod_{kk'} c_{kk'}^{1/2}} \exp{\left(-\alpha D_{KL}(c_{kk'}||p_{kk'})\right)} \text{ with } c_{kk'} = C_{kk'}/C_0\label{eq:entropic}\\
@@ -955,6 +955,7 @@ Comparing tables \ref{table:low_change} and \ref{table:top_change}, one can see 
 
 For purposes of replication, certain analyses have been reproduced on the ACL anthology corpus of Computational Linguistics research \citep{acl_anthology_corpus}. A comparison with the \gls{hep} corpus in shown in Table \ref{table:corpora}. The ACL corpus is smaller, presumably due to a lack of exhaustivity. The requirement on the quantity of publications has been lowered (three per time period instead of five) in order to maintain a reasonable size of cohort. The choice of time periods is arbitrary (i.e. it was not informed by the context). Only 14 topics were deemed to carry scientifically meaningful content upon manual inspection. 
 
+\centering
 \input{tables/Table7}
 
 The transfers of attention are shown in Figure \ref{fig:sankey_acl}. Compared to the high-energy physics corpus, it features significant disruptions (e.g., the emergence of new topics, such as ``deep learning'', ``sentiment analysis'' and ``embeddings \& pre-trained models'').
