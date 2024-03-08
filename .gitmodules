@@ -7,3 +7,7 @@
 	path = adaptation-specialization-code
 	url = git@gin.g-node.org:/lucasgautheron/adaptation-specialization-code.git
 	datalad-url = git@gin.g-node.org:/lucasgautheron/adaptation-specialization-code.git
+[submodule "adaptation_specialization_material"]
+	path = adaptation_specialization_material
+	url = git@gin.g-node.org:/lucasgautheron/adaptation_specialization_material.git
+	datalad-url = git@gin.g-node.org:/lucasgautheron/adaptation_specialization_material.git
