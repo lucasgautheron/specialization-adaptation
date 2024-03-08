@@ -38,7 +38,7 @@ make
 
 ## Code organization
 
-The code that performs the main analyses can be found in ``specialization_adaptation_material/code''.
+The code that performs the main analyses can be found in ```specialization_adaptation_material/code```.
 The table below describes its organization:
 
 | Script                           	| Function                                                                                                           	| Dependencies                                                                          	|
@@ -52,5 +52,8 @@ The table below describes its organization:
 | ```code/topic_distance.py```       	| Evaluates "distances" between topics using different metrics.                                                      	| All of the above                                                                      	|
 | ```code/optimal_transport.py```    	| Recover migration cost matrix using probabilistic inverse optimal transport.                                       	| All of the above and MCMC samples from the ecological inference model.                	|
 | ```code/comparative_analysis.py``` 	| Performs a comparative analysis of the effect of capital on different metrics of change in research interests.     	| All of the above and MCMC samples from the ecological inference model.                	|
+
+Each of the above script should be run from ```specialization_adaptation_material```.
+Input parameters can be listed by doing ```python code/<script.py> --help```.
 
 The code available under ```specialization_adaptation_material/plots``` produces plots using the output of analyses performed by the above scripts.
