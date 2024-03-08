@@ -1,38 +1,43 @@
 all: main.pdf
 
-main.pdf: main.tex references.bib Fig*.pgf Table*.tex
+main.pdf: main.tex references.bib Fig*.pdf Table*.tex
 	latexmk -pdf main.tex
 
-diff: references.bib Fig*.pgf Table*.tex
-	git show bc428ac0a85df764f946694cd0f9d3dfa91fa77f:main.tex > second_submission.tex
-	latexdiff second_submission.tex main.tex > diff.tex
-	latexmk -pdf diff.tex
-
-Fig*.pgf:
-	datalad get trading_zones_material/plots
-	cp -L trading_zones_material/plots/social_divide_ternary.eps Fig2.eps
-	cp -L trading_zones_material/plots/susy_usages.eps Fig3.eps
-	cp -L trading_zones_material/plots/susy_correlations.eps Fig4.eps
-	cp -L trading_zones_material/plots/susy_correlations*.png ./
-	cp -L trading_zones_material/plots/hot_cold_topics_hep_2011_2019_susy.eps Fig5.eps
-	cp -L trading_zones_material/plots/trading_zone_0_1.eps Fig6.eps
-	cp -L trading_zones_material/plots/trading_zone_1_0.eps Fig7.eps
-	cp -L trading_zones_material/plots/category_prediction_stability.eps Fig8.eps
-	cp -L trading_zones_material/plots/topics_tsne.eps Fig9.eps
-	cp -L trading_zones_material/plots/cites_matrix.eps Fig10.eps
-	cp -L trading_zones_material/plots/cites_matrix*.png ./
+Fig*.pdf:
+	datalad get adaptation_specialization_material/output/etm_20_pretrained/*.pdf
+	datalad get adaptation_specialization_material/output/etm_20_pretrained/*.png
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/sankey_control_control_nu_compact.pdf plots/Fig3.pdf
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/trajectory_example_S.Ando.1.eps plots/Fig4a.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/trajectory_example_J.F.Beacom.1.eps plots/Fig4b.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/change_score_effects_entropy_magnitude.eps plots/Fig5.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/exited_score_effects_entropy_magnitude.eps plots/Fig6.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/ei_gamma_control_nu.eps plots/Fig7a.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/ei_delta_control_nu.eps plots/Fig7b.eps
+	cp -L adaptation_specialization_material/output/experiments.eps plots/Fig8.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/sample_characteristics.png plots/Fig9.png
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/topic_citation_matrix.eps plots/Fig10.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/pacs_clustermap.eps plots/Fig11.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/capital_measures.eps plots/Fig12.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/cost_matrix_knowledge_bounded.eps plots/Fig13.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/cost_vs_nu_knowledge.eps plots/Fig14a.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/ei_R_control_nu.eps plots/Fig14b.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/change_score.eps plots/Fig15.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/disruption_score_effects_entropy_magnitude.eps plots/Fig16.eps
 	
 Table*.tex:
-	datalad get trading_zones_material/tables
-	cp -L trading_zones_material/tables/specific_vocabulary_th_ph.tex Table2.tex
-	cp -L trading_zones_material/tables/specific_vocabulary_exp_ph.tex Table3.tex
-	cp -L trading_zones_material/tables/top_words.tex Table4.tex
-	cp -L trading_zones_material/tables/topic_pacs_validation.tex Table5.tex
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/topics.tex tables/Table1.tex
+	cp -L adaptation_specialization_material/output/scores.tex tables/Table2.tex
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/summary_change_disruption.tex tables/Table3.tex
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/summary_entered_exited.tex tables/Table4.tex
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/low_change.tex tables/Table5.tex
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/top_change.tex tables/Table6.tex
+	cp -L adaptation_specialization_material/output/hep_vs_acl.tex tables/Table7.tex
 
 clean:
 	rm -rf rm -f *.bbl *.aux *.blg *.log *.out *.pdf *.tdo *.fls *.fdb_latexmk *.ist *-eps-converted-to.pdf *.bcf *.run.xml *.acn *.synctex.gz *.toc
-	rm -rf Fig*.eps
-	rm -rf Table*.tex
-	datalad drop trading_zones_material/plots/*.pgf
-	datalad drop trading_zones_material/plots/*.eps
-	datalad drop trading_zones_material/tables/*.tex
+	rm -rf plots/Fig*.eps
+	rm -rf plots/Fig*.pdf
+	rm -rf plots/Fig*.png
+	rm -rf tables/Table*.tex
+	datalad drop adaptation_specialization_material/output/etm_20_pretrained/*.pdf
+	datalad drop adaptation_specialization_material/output/etm_20_pretrained/*.png
