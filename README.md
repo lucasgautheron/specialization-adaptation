@@ -15,6 +15,18 @@ datalad install -r git@github.com:lucasgautheron/specialization-adaptation.git
 
 Please note that the repository contains nested submodules. The above command will install all of them recursively.
 
+For certain analyses, you will need to download the source data:
+
+```bash
+datalad get specialization_adaptation_material/inspire-harvest/database
+```
+
+Some analyses will require intermediate analyses outputs to be downloaded as well. They can be downloaded individually with datalad get, e.g.:
+
+```bash
+datalad get specialization_adaptation_material/output/etm_20_pretrained/etm_instance.pickle
+```
+
 ## Manuscript compilation
 
 The manuscript can be re-compiled by issuing the following commands:
