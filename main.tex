@@ -839,7 +839,7 @@ As shown in Figure \ref{fig:capital_measures}, the entropic measure of diversity
 
 The predictive power of the model can be assessed by evaluating the total variation distance between the true distribution $\bm{y_a}$ and the predicted distribution $\bm{y_a^{\text{pred}}}$. This performance metric is calculated via 10-fold cross-validation. It is compared  to a baseline model that predicts no change in the research agenda ($\bm{y_a^{\text{baseline}}}=\bm{x_a}$). The results are shown in Table \ref{table:performance}. For the cohort of high-energy physicists, the model performs only marginally better than the baseline, given that individuals have remained quite conservative on average, most of the fluctuations being difficult to predict. Table \ref{table:performance} also considers a cohort of scientists from the ACL anthology corpus  of computational linguistics research \citep{acl_anthology_corpus}, by running the same pipeline (the measurement of research portfolios during two consecutive time periods using our topic model approach and the training of the trajectory model). Although the data are of lesser quality (see Appendix \ref{appendix:hep_vs_acl}, Table \ref{table:corpora}), research portfolios have undergone much more significant transformations in this dataset (see Appendix \ref{appendix:hep_vs_acl}, Figure \ref{fig:sankey_acl}). Consequently, our model performs much better than the baseline for this cohort.
 
-\input{tables/scores}
+\input{tables/Table2}
 
 \subsection{\label{appendix:optimal_transport}Learning costs and optimal transport}
 
