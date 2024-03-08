@@ -319,7 +319,7 @@ Four of the 20 resulting topics regroup keywords that do not clearly refer to an
 
 %In the evaluation of the ``topic content'' of each document, we discard ambiguous keywords that do not clearly carry scientific content in order to obtain more informative distributions.
 
-Then, we derive $n_{dk}$, the amount of keywords in the abstract of $d$ that refer to a research area $k$ (using Naives Bayes, as described in Appendix \ref{appendix:keywords}), and consequently $X_{a,k}$, the amount of times keywords (``resources'', i.e. concepts, models, methods, etc.) in relation to research area $k$ have occurred in papers (co-)authored by $a$ in the initial time-period (2000 to 2009). Mathematically, $X_{a,k}=\sum_{d\in [2000,2009],a\in A_d} n_{d,k}$, where $A_d$ is the set of authors of a publication $d$. The matrix $Y_{a,k}$ is derived similarly, using publications from the later time period (2015 to 2019). Research portfolios are then normalized into distributions $x_{ak} \equiv X_{ak}/\sum_{k'} X_{ak'}$ and $y_{ak} \equiv Y_{ak}/\sum_{k'} Y_{ak'}$, thus encoding how scientists divided their attention during each period.
+Then, we derive $n_{dk}$, the amount of keywords in the abstract of $d$ that refer to a research area $k$ (using the method described in Appendix \ref{appendix:keywords}), and consequently $X_{a,k}$, the amount of times keywords (``resources'', i.e. concepts, models, methods, etc.) in relation to research area $k$ have occurred in papers (co-)authored by $a$ in the initial time-period (2000 to 2009). Mathematically, $X_{a,k}=\sum_{d\in [2000,2009],a\in A_d} n_{d,k}$, where $A_d$ is the set of authors of a publication $d$. The matrix $Y_{a,k}$ is derived similarly, using publications from the later time period (2015 to 2019). Research portfolios are then normalized into distributions $x_{ak} \equiv X_{ak}/\sum_{k'} X_{ak'}$ and $y_{ak} \equiv Y_{ak}/\sum_{k'} Y_{ak'}$, thus encoding how scientists divided their attention during each period.
 
 \subsection{\label{sec:capital}Measuring capital}
 
@@ -359,7 +359,7 @@ Where $A_d$ is the set of the co-authors of a paper $d$. This weighing scheme --
 
 \subsubsection{Diversity and power}
 
-Measures of ``diversity'' (and ``power'') can be readily derived from $\bm{I_a}$ (and $\bm{S_a}$). A common measure of diversity is the Shannon entropy $H$ \citep{Jost2006}\footnote{The Shannon entropy of the discrete uniform distribution on $\{1,\dots,n\}$ is $\log{n}$, such as that the exponential of the entropy is roughly the effective amount of outcomes for the distribution ($n$).}. Let 
+Measures of ``diversity'' (and ``power'') can be readily derived from $\bm{I_a}$ (and $\bm{S_a}$). A common measure of diversity is the Shannon entropy $H$ \citep{Jost2006}. Let 
  $D(\bm{I_a})=\exp{H(\bm{I_a})}$ be the diversity of intellectual capital (and $D(\bm{S_a})=\exp{H(\bm{S_a})}$ that of social capital). Roughly speaking, these are measures of how many research areas scientists have
 divided their cognitive or social resources among. In the cohort, individuals typically have cognitive resources in several research areas ($\mu_{D(\bm{I_a})}=6.1,\sigma=2.2$), and social capital is even more diverse ($\mu_{D(\bm{S_a})}=8.5,\sigma=2.2$). In fact, intuitively,  scientific collaborations enable individuals to take advantage of their group's diversity. Furthermore, $D(\bm{I_a})$ and $D(\bm{S_a})$ are highly correlated ($R=0.75$); indeed, individuals with more diverse expertise are more able to engage with diverse collaborators. Since the diversity of social capital is only expected to enhance individuals' abilities when it exceeds that of their own knowledge, from now on, only \textit{excess} social capital diversity $D^{\ast}(\bm{S_a})$ (defined as the residuals of the linear regression of $D(\bm{S_a})$ against $D(\bm{I_a})$, by ordinary least squares) is considered\footnote{This approach aims to address the difficulty of determining the direction of the causal relationship between social resources and research interests raised by \citet{Tripodi2020}.}.
 
@@ -925,8 +925,8 @@ The same model structure is used for the probability of having exited a research
 \end{figure}
 
 
-\input{tables/Table2}
 \input{tables/Table3}
+\input{tables/Table4}
 
 % \section{\label{appendix:macro}Macroscopic transfers}
 
@@ -949,14 +949,14 @@ For instance, on G.~Ferretti's university webpage, one can read: ``Gabriele Ferr
 
 Comparing tables \ref{table:low_change} and \ref{table:top_change}, one can see that physicists with high change scores tend to have much more diverse intellectual and social capital. In other words, such physicists have had more opportunities to adapt or revise their research agenda. This is in line with the observation that change is enhanced by the diversity of cognitive resources one has access to.
 
-\fontsize{6}{7}\selectfont\input{tables/Table4}\normalsize
 \fontsize{6}{7}\selectfont\input{tables/Table5}\normalsize
+\fontsize{6}{7}\selectfont\input{tables/Table6}\normalsize
 
 \subsection{\label{appendix:hep_vs_acl}Replication corpus}
 
 For purposes of replication, certain analyses have been reproduced on the ACL anthology corpus of Computational Linguistics research \citep{acl_anthology_corpus}. A comparison with the \gls{hep} corpus in shown in Table \ref{table:corpora}. The ACL corpus is smaller, presumably due to a lack of exhaustivity. The requirement on the quantity of publications has been lowered (three per time period instead of five) in order to maintain a reasonable size of cohort. The choice of time periods is arbitrary (i.e. it was not informed by the context). Only 14 topics were deemed to carry scientifically meaningful content upon manual inspection. 
 
-\input{tables/Table6}
+\input{tables/Table7}
 
 The transfers of attention are shown in Figure \ref{fig:sankey_acl}. Compared to the high-energy physics corpus, it features significant disruptions (e.g., the emergence of new topics, such as ``deep learning'', ``sentiment analysis'' and ``embeddings \& pre-trained models'').
 
