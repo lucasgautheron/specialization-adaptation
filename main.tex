@@ -104,7 +104,7 @@
 
 
 \begin{abstract}
-How do scientists navigate between the need to capitalize on their prior knowledge through specialization, and the urge to adapt to evolving research opportunities? Drawing from diverse perspectives on adaptation, in particular from institutional change and cultural evolution, this paper proposes an unsupervised Bayesian model of the evolution of scientists' research portfolios in response to transformations in their field. The model relies on scientific abstracts and authorship data to evaluate the influence of intellectual, social, and institutional resources on scientists' trajectories within a cohort of $2\,195$ high-energy physicists between 2000 and 2019. Using Optimal Transport, the reallocation of research efforts is shown to be shaped by learning costs, thus enhancing the utility of the scientific capital disseminated among scientists. Two dimensions of social capital, namely ``diversity'' and ``power'', have opposite effects on the magnitude of change in scientists' research interests: while ``diversity'' disrupts and expands research interests, ``power'' stabilizes physicists' research agendas -- as does institutional stability. Social capital plays a more crucial role in shifts between cognitively distant research areas. Overall, this contribution provides new approaches for understanding and modeling collective adaptation.  %Finally, this paper argues for the fruitfulness of combining different perspectives on adaptation, in particular those from cultural evolution and institutional change.
+How do scientists navigate between the need to capitalize on their prior knowledge through specialization, and the urge to adapt to evolving research opportunities? Drawing from diverse perspectives on adaptation, in particular from institutional change and cultural evolution, this paper proposes an unsupervised Bayesian model of the evolution of scientists' research portfolios in response to transformations in their field. The model relies on scientific abstracts and authorship data to evaluate the influence of intellectual, social, and institutional resources on scientists' trajectories within a cohort of $2\,195$ high-energy physicists between 2000 and 2019. Using Optimal Transport, the reallocation of research efforts is shown to be shaped by learning costs, thus enhancing the utility of the scientific capital disseminated among scientists. Two dimensions of social capital, namely ``diversity'' and ``power'', have opposite effects on the magnitude of change in scientists' research interests: while ``diversity'' disrupts and expands research interests, ``power'' stabilizes physicists' research agendas -- as does institutional stability. Social capital plays a more crucial role in shifts between cognitively distant research areas. Overall, this contribution provides new approaches for understanding and modeling collective adaptation.
     
 \end{abstract}
 
@@ -112,52 +112,10 @@ How do scientists navigate between the need to capitalize on their prior knowled
 \ \\
 
   \email{lucas.gautheron@gmail.com}\\ORCID: 0000-0002-3776-3373\\
- %Conceptualization, Methodology, Software, Formal analysis, Data Curation, Writing - Original Draft, Visualization\\\\
  \affaddr{\affmark[1]Interdisciplinary Centre for Science and Technology Studies (IZWT), University of Wuppertal, Germany}\\
  \affaddr{\affmark[2]Département d'Études Cognitives, École Normale Supérieure, Paris, France}
 
  \paragraph{Keywords}{adaptation; specialization; science of science;  cultural evolution; computational social science; optimal transport}
-
- 
- % \pagebreak
-
-% Ideas for further analyses:
-
-% \begin{itemize}
-%     \item Evaluate effect of institutinal instability (i.e. amount of successive affiliations over the period considered) on change score?
-%     \item Evaluate effect of academic age?
-%     \item Inspect a few profiles of interest by hand, e.g. most significant shifts from Electroweak sector to Dark matter. Maybe send out emails to these physicists and ask a few questions to understand why they have shifted to new research problems and what allowed them to do so.
-% \end{itemize}
-
-% Improvements to the model:
-
-% \begin{itemize}
-%     \item The topic distribution of papers that have lots of co-authors should contribute comparatively less to an author's intellectual capital.
-%     \item Consider Horseshoe priors (at least for matrix $\gamma$) in order to handle sparsity. Strong evidence of sparsity of $\gamma$. Use \citep{Piironen2017}?
-% \end{itemize}
-
-% Robustness checks:
-
-% \begin{itemize}
-%     \item Make sure that topics are rather autonomous: e.g., that they are strongly correlated with experiments such that those belong to typically 1 topic at most. 
-%     \item Make sure that conclusions not sensitive to number of publications required for each time period. Re-do analyses for different thresholds and check. Although I want to look into committed high-energy physicists, so we cannot just lower the publication threshold. Besides the effect of position stability has been considered
-%     % \item Compare correlation between $\log p_{\theta|w}$ and $\log p_{\theta'|w}$ (or between $\theta_{d,i}$ and $\theta_{d,j}$) with the effect of intellectual/social capital [done, not very conclusive]
-% \end{itemize}
-
-% Questions:
-
-% \begin{itemize}
-%     \item Should we add a short description of each ``research area'' in the section that introduces the topic model?
-%     \item Should we anonymize physicists' names when looking into individual examples? I guess we should.
-% \end{itemize}
-
-% Further analyses planned:
-% \begin{itemize}
-%     \item Plug ``individual knowledge'' as a covariate into the model and see what knowledge enhances certain trajectories/shifts to other research areas
-%     \item Look into variables that explain whether scientists expanded or shrunk their research agenda. Currently change score does differentiate between these two strategies.
-%     \item Look into different strategies: consolidation, expansion, migration, etc.
-% \end{itemize}
-
 
 \section{Introduction}
 
@@ -167,7 +125,7 @@ Scientists are subject to conflicting incentives. On the one hand, they must wor
 Our approach reveals trends in the field: the boom of dark matter research -- fueled by shifts away from the physics of neutrinos and the electroweak sector -- and the partial disintegration of string theory into the study of black holes and holographic dualities. More importantly, this analysis also shows that changes in scientists' research portfolios are structured by learning costs, as scientific communities adapting to new circumstances address an Optimal Transport problem by reallocating research efforts efficiently. Moreover, two dimensions of social capital, namely ``diversity'' and ``power'' \citep{Abbasi2014}, have opposite effects on change. While ``diversity'' of social capital  -- the extent to which scientists have access to diverse cognitive resources via their collaborators -- promotes change and further diversification of scientists' research interests, ``power'' -- roughly speaking, the size of their network -- stabilizes their research interests. Social capital has a stronger effect on transfers between research areas that are more cognitively ``distant''. Furthermore, institutional stability is associated with more conservative research interests. %Finally, by comparing scientists' impact, we show that the turn to dark matter, cosmology and black holes has paid off for physicists with prior commitment in ``string theory \& supergravity'' or neutrino physics.
 Overall, we contribute: i) a theoretical account of the features of change in scientists' research interests; ii) a novel methodological approach that introduces a model of scientists' trajectories and measures of intellectual capital, social capital, diversity, and power; and finally, iii) empirical evidence from high-energy physics. More generally, this paper addresses the relative lack of empirical works within the body of literature that investigates science as a cultural evolutionary system \citep{Wu2023}.
 
-In what follows, Sections \ref{sec:review} and \ref{sec:conceptual} summarize previous research and lays out the conceptual background on which the analysis rests, and Section \ref{sec:hep} introduces the context of high-energy physics to which the model is applied. %; and Section \ref{sec:hypotheses} summarises the hypotheses that will be evaluated throughout the paper.
+In what follows, Sections \ref{sec:review} and \ref{sec:conceptual} summarize previous research and lays out the conceptual background on which the analysis rests, and Section \ref{sec:hep} introduces the context of high-energy physics to which the model is applied. 
 Section \ref{sec:methods} elaborates the methodology: the data (\ref{sec:data}), the topic model approach for measuring authors' research portfolios (\ref{sec:topics}), the proposed measures of intellectual and social capital (\ref{sec:capital}), and the model of scientists' trajectories (\ref{sec:model}).
 Section \ref{sec:results} presents the results: i) the transfers of attention from one research area to another due to changes in the scientific landscape; ii) the structuring role of learning costs in the observed patterns of adaptation (\ref{sec:optimal-transport}), and iii) the effect of capital (intellectual and social) and position stability on physicists' strategies (\ref{sec:comparative}). %Finally, we explore the outcome of scientists' trajectories in terms of citations (\ref{sec:outcomes}) as evidence for the incentives they receive to adapt and the relative payoffs of different strategies. 
 
