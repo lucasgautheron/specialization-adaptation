@@ -789,7 +789,7 @@ The predictive power of the model can be assessed by evaluating the total variat
 
 \subsection{\label{appendix:optimal_transport}Learning costs and optimal transport}
 
-The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 500,000 iterations of the ``MetroMC'' algorithm, using what the authors call a ``P1'' prior (that is, a prior such that $\sum_{kk'}C_{kk'}=C_0=\mathrm{cst}$). More precisely, we assume that:
+The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 1\,000\,000 iterations of the ``MetroMC'' algorithm, using what the authors call a ``P1'' prior (that is, a prior such that $\sum_{kk'}C_{kk'}=C_0=\mathrm{cst}$). More precisely, we assume that:
 
 \begin{align}
     P(c_{kk'}|p_{kk'}) &= \dfrac{1}{Z}\dfrac{1}{\displaystyle\prod_{kk'} c_{kk'}^{1/2}} \exp{\left(-\alpha D_{KL}(c_{kk'}||p_{kk'})\right)} \text{ with } c_{kk'} = C_{kk'}/C_0\label{eq:entropic}\\
