@@ -335,7 +335,7 @@ Alternative measures of diversity and power are considered for robustness assess
 
 \subsection{\label{sec:model}Modelling trajectories}
 
-The model for the late research portfolio $\bm{Y_a}$ is schematically illustrated in Figures \ref{fig:model_schema_a},\ref{fig:model_schema_b},\ref{fig:model_schema_c}, and a more formal representation is given in Figure \ref{fig:model_structure}. It captures the idea expressed in Figure \ref{fig:research-agenda} that research portfolios are transformed via strategic transfers of knowledge from one research area to another. Occurrences of keywords that belong to each research area $k$ in papers by $a$ in the late time period, $\bm{Y_{a}} \in \mathbb{R}^K$, are assumed to be drawn from a hierarchical multinomial logistic model. $\bm{Y_{a}}$ results from a linear combination of the initial research portfolio, $\bm{x_{a}}$, and a mixing matrix $\theta_a$ that measures the fraction of attention redistributed from each research area to another. $\theta_a$ is drawn from a hierarchical process, thus capturing the ``average'' cohort behavior. %Of course, one could consider the effect of many other covariates; for instance, the effect of holding specific bits of knowledge (models, methods, etc.).
+The model for the late research portfolio $\bm{Y_a}$ is schematically illustrated in Figures \ref{fig:model_schema_a},\ref{fig:model_schema_b},\ref{fig:model_schema_c}, and a more formal representation is given in Figure \ref{fig:model_structure}. It captures the idea expressed in Figure \ref{fig:research-agenda} that research portfolios are transformed via strategic transfers of knowledge and attention from one research area to another. Occurrences of keywords that belong to each research area $k$ in papers by $a$ in the late time period, $\bm{Y_{a}} \in \mathbb{R}^K$, are assumed to be drawn from a hierarchical multinomial logistic model. $\bm{Y_{a}}$ results from a linear combination of the initial research portfolio, $\bm{x_{a}}$, and a mixing matrix $\theta_a$ that measures the fraction of attention redistributed from each research area to another. $\theta_a$ is drawn from a hierarchical process, thus capturing the ``average'' cohort behavior. %Of course, one could consider the effect of many other covariates; for instance, the effect of holding specific bits of knowledge (models, methods, etc.).
 Formally speaking, $\bm{Y_{a}}$ is assumed to derive from a multinomial process involving linear combinations of $(x_{ak})$:
 
 \begin{equation}
@@ -678,15 +678,19 @@ Moreover, although the unsupervised topic model approach is arguably a better pr
 
 \printglossaries
 
-\paragraph{Acknowledgements}{I thank Thomas Heinze, Radin Dardashti, and Elisa Omodei for useful discussions; Georges Ricci for raising my interest in Optimal Transport; Marco Schirone for useful references; the LATTICE lab in Montrouge for the opportunity to discuss this work; and Elizabeth Zanghi for corrections.}
+\section*{Declarations}
 
-\paragraph{Funding}{This work has received support from the G-Research Grant for Early-Career Researchers.}
-
-\paragraph{Data, code and materials}{The data and code used for this publication is available at \url{https://github.com/lucasgautheron/specialization-adaptation/}. The repository will be archived on Zenodo upon publication.}
+\paragraph{Availability of data and material}{The data and code used for this publication is available at \url{https://github.com/lucasgautheron/specialization-adaptation/}. The repository will be archived on Zenodo upon publication.}
 
 \paragraph{Competing Interests}{The author declares no competing interest.}
 
+\paragraph{Funding}{This work has received support from the G-Research Grant for Early-Career Researchers.}
+
 \paragraph{Authors' contributions}{The sole author of the paper completed all of the work.}
+
+\paragraph{Acknowledgements}{I thank Thomas Heinze, Radin Dardashti, and Elisa Omodei for useful discussions; Georges Ricci for raising my interest in Optimal Transport; Marco Schirone for useful references; the LATTICE lab in Montrouge for the opportunity to discuss this work; and Elizabeth Zanghi for corrections.}
+
+
 
 \printbibliography
 %TC:ignore
