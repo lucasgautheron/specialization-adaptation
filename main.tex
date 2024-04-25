@@ -525,8 +525,16 @@ a shared set of anomalies in astronomical observations, and yet their communitie
 
  \begin{figure}[h]
      \centering
-     \includegraphics[width=0.8\textwidth,trim={0 1.5cm 0 1.5cm},clip]{Fig3.pdf}
-     \caption{\textbf{Aggregate transfers of attention across research areas, between 2000-2009 (to the left) and 2015-2019 (to the right)}. Widths of flows are proportional to $\sum_a X_{ak}\theta_{akk'}$. Insignificant transfers (that happen less than expected by chance alone assuming uniform mixing) are transparent.}
+     
+\begin{subfigure}{.45\textwidth}
+\includegraphics[width=0.8\textwidth,trim={0 1.5cm 0 1.5cm},clip]{Fig3a.pdf}
+    \label{a}
+\end{subfigure}\hfill%
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=0.8\textwidth,trim={0 1.5cm 0 1.5cm},clip]{Fig3b.pdf}
+    \label{b}
+\end{subfigure}
+     \caption{\textbf{(a) Aggregate transfers of attention across research areas, between 2000-2009 (to the left) and 2015-2019 (to the right)}. Widths of flows are proportional to $\sum_a X_{ak}\theta_{akk'}$. Insignificant transfers (that happen less than expected by chance alone assuming uniform mixing) are transparent. (b) Same, highlighting only the flows directed towards ``Dark matter'.}
      \label{fig:sankey}
  \end{figure}
 
@@ -575,7 +583,7 @@ We propose a change score $c_a$ that measures how much the research agenda of a 
 This measure of change is also motivated by Optimal Transport: it is the minimal cost of transporting $\bm{x_a}$ to $\bm{y_a}$ if the cost matrix has zeros on the diagonal and ones everywhere else\footnote{That is, if $C_{kk}=0$ and $C_{kk'}=1$ for $k\neq k'$.}.
 
 $c_a$ is comprised between 0 (if research attention has remained identically distributed) and 1 (if the research agenda has been entirely redistributed).
-Large values of $c_a$ are rare, with 50\% of authors lying between 0.21 and 0.40  (Appendix \ref{appendix:change-model}, Figure \ref{fig:change_scores}). Although the absolute value of $c_a$ has limited interpretability (it depends on the choice of ``cognitive scope''   and the duration of the time periods considered, and $c_a$ is never expected to be exactly zero due to random fluctuations and measurement noise), it allows for comparisons between physicists. We evaluate the effect of several factors on $c_a$: i) the diversity of intellectual capital $D(\bm{I_a})$; ii) the excess diversity of social capital $D^{\ast}(\bm{S_a})$; and iii) the magnitude of social capital (``power''). We also consider the effect of affiliation stability, represented by a binary variable $s_a$ ($s_a=1$ if scientist $a$ has at least one affiliation that spans the whole time range considered, and $s_a=0$ otherwise). We perform a linear regression of $c_a$ as a function of these four variables, adjusting for $Z_a=\argmax_{k} x_{ak}$, i.e. physicists' primary research area over the years 2000 to 2009 (see the model specification in Appendix \ref{appendix:change-model}).
+Large values of $c_a$ are rare, with 50\% of authors lying between 0.21 and 0.40  (Appendix \ref{appendix:change-model}, Figure \ref{fig:change_scores}). Although the absolute value of $c_a$ has limited interpretability (it depends on the choice of ``cognitive scope''   and the duration of the time periods considered, and $c_a$ is never expected to be exactly zero due to random fluctuations and measurement noise), it allows for comparisons between physicists. We evaluate the effect of several factors on $c_a$: i) the diversity of intellectual capital $D(\bm{I_a})$; ii) the excess diversity of social capital $D^{\ast}(\bm{S_a})$; and iii) the magnitude of social capital (``power''). We also consider the effect of affiliation stability, represented by a binary variable $s_a$ ($s_a=1$ if scientist $a$ has at least one affiliation that spans the whole time range considered, and $s_a=0$ otherwise), and the effect of academic age. We perform a linear regression of $c_a$ as a function of these five variables, adjusting for $Z_a=\argmax_{k} x_{ak}$, i.e. physicists' primary research area over the years 2000 to 2009 (see the model specification in Appendix \ref{appendix:change-model}).
 
 The results are shown in Figure \ref{fig:change_score_effect}. The diversity of intellectual capital has a significant positive effect: physicists with resources in many areas tend to revise their research agenda more. There is also evidence of a small but positive effect of diversity of social capital on the magnitude of changes in scientists' research focus. However, the \textit{magnitude} of social capital, ``power'', has a negative direct effect on change. In other words, ``power'' promotes stability, while ``diversity'' promotes change. It is noteworthy that these dimensions of social capital have opposite effects. Physicists with permanent affiliations are more conservative toward their research agenda, possibly because they experience less incentive to ``adapt''. Conversely, new positions might be associated with breaks in research topics.
 
@@ -619,7 +627,7 @@ The diversity of intellectual capital has a strong positive effect on the probab
 
 Access to diverse cognitive resources promotes change. To see why, it is insightful to look into how the concentration of scientists' intellectual capital in each research area $k$ ($\bm{I_a}=(I_{ak})$) affects their trajectories. In the model introduced in Section \ref{sec:model}, the diagonal coefficients of the $\gamma$ matrix measure the effect of having intellectual resources in a certain area on the commitment to this area. As shown in Figure \ref{fig:intellectual-capital-effect}, most coefficients on the diagonal are significantly positive: physicists with a strong specialization in a research area tend to preserve their specialization in this area.
 
-The effect of social capital on transfers across research areas ($\delta_{kk'}$, Eq. \ref{eq:glm}), is shown in Figure \ref{fig:social-capital-effect}. Statistically significant effects are always positive: scientists tend to redirect attention to research areas in which they have many collaborators involved, in line with a very recent observation by \citeauthor{Venturini2024} \citealt{Venturini2024}.
+The effect of social capital on transfers across research areas ($\delta_{kk'}$, Eq. \ref{eq:glm}), is shown in Figure \ref{fig:social-capital-effect}. Statistically significant effects are always positive: scientists tend to redirect attention to research areas in which they have more collaborators involved, in line with a very recent observation by \citeauthor{Venturini2024} \citealt{Venturini2024}.
 
 
 \begin{figure}[h]
