@@ -578,7 +578,7 @@ We propose a change score $c_a$ that measures how much the research agenda of a 
     c_a \equiv \mathrm{d}_{\text{TV}}(\bm{x_a},\bm{y_a}) = \frac{1}{2} \sum_k |y_{ak}-x_{ak}|
 \end{equation}
 
-This measure of change is naturally motivated by Optimal Transport: it is the minimal cost of transporting $\bm{x_a}$ to $\bm{y_a}$ if the cost matrix has zeros on the diagonal and ones everywhere else\footnote{That is, if $C_{kk}=0$ and $C_{kk'}=1$ for $k\neq k'$.}.
+This measure of change is naturally motivated by Optimal Transport: it is the minimal cost of transporting $\bm{x_a}$ to $\bm{y_a}$ if the cost matrix has zeros on the diagonal and ones everywhere else (That is, if $C_{kk}=0$ and $C_{kk'}=1$ for $k\neq k'$.). This measure of change weighs migrations across different research areas identically, regardless of their cognitive proximity. We will therefore also consider a second measure of change, ``disprution'' ($d_a$), defined as the minimum cost of transporting $\bm{x_a}$ to $\bm{y_a}$ \citep{Peyr2019} induced by a cost-matrix equal to the ``cognitive gap'' from $k$ to $k'$ \footnote{The cognitive gap from $k$ to $k'$ is evaluated as $1-\nu_{kk'}$, where $\nu_{kk'}$ is the fraction of physicists with expertise in $k$ that also have expertise in $k'$}. Another interesting aspect of Optimal Transport is indeed its ability to provide ``distances'' between distributions that emphasize certain costs in particular \footnote{ See \citealt{Peyr2019} for more on the metric properties of \gls{ot}.}.
 
 $c_a$ is comprised between 0 (if research attention has remained identically distributed) and 1 (if the research agenda has been entirely redistributed).
 Large values of $c_a$ are rare, with 50\% of authors lying between 0.21 and 0.40  (Appendix \ref{appendix:change-model}, Figure \ref{fig:change_scores}). Although the absolute value of $c_a$ has limited interpretability (it depends on the choice of ``cognitive scope''   and the duration of the time periods considered, and $c_a$ is never expected to be exactly zero due to random fluctuations and measurement noise), it allows for comparisons between physicists. We evaluate the effect of several factors on $c_a$: i) the diversity of intellectual capital $D(\bm{I_a})$; ii) the excess diversity of social capital $D^{\ast}(\bm{S_a})$; and iii) the magnitude of social capital (``power''). We also consider the effect of affiliation stability, represented by a binary variable $s_a$ ($s_a=1$ if scientist $a$ has at least one affiliation that spans the whole time range considered, and $s_a=0$ otherwise), and the effect of academic age. We perform a linear regression of $c_a$ as a function of these five variables, adjusting for $Z_a=\argmax_{k} x_{ak}$, i.e. physicists' primary research area over the years 2000 to 2009 (see the model specification in Appendix \ref{appendix:change-model}).
@@ -590,11 +590,11 @@ Unsurprisingly, both research areas that have shrunk considerably have a signifi
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{Fig5}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability the magnitude of changes in high-energy physicists' interests ($c_a$)}. Diversity is evaluated as the exponential of the Shannon entropy of the distribution of intellectual and social capital across research areas. The effect of the primary research area during the initial period (2000-2009) was also included as a control. Three research areas have a significant (95\% CL) effect. Error bars indicate 95\% credible intervals; $\mu(\beta)$ denotes the mean posterior effect size. $R^2=0.15$. Continuous variables (diversity, power and $c_a$) are standardized.}
+    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability the magnitude of changes in high-energy physicists' interests.}. Change ($c_a$) weighs migrations across research areas equally. Disruption ($d_a$) gives more weight to migrations across cognitively distant research area. Diversity is evaluated as the exponential of the Shannon entropy of the distribution of intellectual and social capital across research areas. The effect of the primary research area during the initial period (2000-2009) was also included as a control. Three research areas have a significant (95\% CL) effect. Error bars indicate 95\% credible intervals; $\mu(\beta)$ denotes the mean posterior effect size. $R^2=0.15$. Continuous variables (diversity, power and $c_a$) are standardized.}
     \label{fig:change_score_effect}
 \end{figure}
 
-$c_a$ neglects the cognitive gap between research areas. Using an alternative measure of change that takes into account cognitive distance (``disruption''), defined as the minimum cost\footnote{Another interesting aspect of Optimal Transport is indeed its ability to provide ``distances'' between distributions that emphasize certain costs in particular. See \citealt{Peyr2019} for more on the metric properties of \gls{ot}.} of transporting $\bm{x_a}$ to $\bm{y_a}$ \citep{Peyr2019} induced by a cost-matrix equal to the ``cognitive gap'' from $k$ to $k'$ \footnote{The cognitive gap from $k$ to $k'$ is evaluated as $1-\nu_{kk'}$, where $\nu_{kk'}$ is the fraction of physicists with expertise in $k$ that also have expertise in $k'$.},  the diversity of social capital has a much larger effect ($\mu(\beta)=0.28$ instead of $0.09$, cf. Figure \ref{fig:disruption_score_effect} in Appendix \ref{appendix:robustness})\footnote{Using an alternative measure of diversity that rewards diverse capital that spans across cognitive boundaries (the Stirling-based measure defined in Appendix \ref{appendix:capital_validation}), the diversity of social capital has an even stronger effect on disruption ($\mu(\beta)=0.85$; see Table \ref{table:summary_change_disruption}, Appendix \ref{appendix:robustness}).}. Therefore, social capital matters more when scientists move across cognitive boundaries. Interpreting these results in terms of Optimal Transport, we can say that social capital helps overcome cognitive learning costs.
+$c_a$ neglects the cognitive gap between research areas. Using our alternative measure of change that takes into account cognitive distance (``disruption''),  the diversity of social capital has a much larger effect ($\mu(\beta)=0.28$ instead of $0.09$.\footnote{Using an alternative measure of diversity that rewards diverse capital that spans across cognitive boundaries (the Stirling-based measure defined in Appendix \ref{appendix:capital_validation}), the diversity of social capital has an even stronger effect on disruption ($\mu(\beta)=0.85$; see Table \ref{table:summary_change_disruption}, Appendix \ref{appendix:robustness}).}. Therefore, social capital matters more when scientists move across cognitive boundaries. Interpreting these results in terms of Optimal Transport, we can say that social capital helps overcome cognitive learning costs.
 
 % A manual inspection of the 20 least and most conservative physicists of the cohort is conducted in Appendix \ref{appendix:cases} and is found to be consistent with these findings.
 
@@ -844,7 +844,7 @@ The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 1\,000\,000 iterat
 
 \begin{figure}[h]
     \centering     \includegraphics[width=0.8\textwidth]{Fig15}
-    \caption{\textbf{Distribution of change scores in the cohort}. Higher values correspond to more drastic changes in a scientists' research agenda.}    
+    \caption{\textbf{Distribution of change and disruption scores in the cohort}. Higher values correspond to more drastic changes in a scientists' research agenda.}    
     \label{fig:change_scores}
 \end{figure}
 
@@ -876,15 +876,6 @@ The model for the probability $p_a$ of having entered a new field:
 The same model structure is used for the probability of having exited a research area.
 
 \subsubsection{\label{appendix:robustness}Effect of capital and robustness checks}
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Fig16}
-    \caption{\textbf{Effect of standardized measures of intellectual and social capital, and institutional stability on the disruption of the physicists' research agenda (as measured by the disruption score $d_a$)}. The disruption score is defined as the minimum cost of ``transporting'' $\bm{x_a}$ to $\bm{y_a}$ given the cost matrix $C_{kk'}=1-\nu_{kk'}$ (see Section \ref{sec:optimal-transport}). Disruption is higher for scientists who migrate to cognitively distant research areas.}
-    \label{fig:disruption_score_effect}
-\end{figure}
-
 
 \input{Table3}
 \input{Table4}
