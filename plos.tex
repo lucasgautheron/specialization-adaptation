@@ -1,22 +1,150 @@
-%!TEX TS-program = xelatex
-%!TEX encoding = UTF-8 Unicode
-%TC:incbib
-%TC:macro \footnote [text]
-%TC:macro \citet [text]
-%TC:macro \citealt [text]
-%TC:macro \citep [text]
+% Template for PLoS
+% Version 3.6 Aug 2022
+%
+% % % % % % % % % % % % % % % % % % % % % %
+%
+% -- IMPORTANT NOTE
+%
+% This template contains comments intended 
+% to minimize problems and delays during our production 
+% process. Please follow the template instructions
+% whenever possible.
+%
+% % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Once your paper is accepted for publication, 
+% PLEASE REMOVE ALL TRACKED CHANGES in this file 
+% and leave only the final text of your manuscript. 
+% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
+% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
+%
+%
+% There are no restrictions on package use within the LaTeX files except that no packages listed in the template may be deleted.
+%
+% Please do not include colors or graphics in the text.
+%
+% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- FIGURES AND TABLES
+%
+% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
+%
+% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
+% - Figures should be uploaded separately from your manuscript file. 
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
+% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
+% For figure citations, please use "Fig" instead of "Figure".
+% See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
+%
+% Tables should be cell-based and may not contain:
+% - spacing/line breaks within cells to alter layout or alignment
+% - do not nest tabular environments (no tabular environments within tabular environments)
+% - no graphics or colored text (cell background color/shading OK)
+% See http://journals.plos.org/plosone/s/tables for table guidelines.
+%
+% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- EQUATIONS, MATH SYMBOLS, SUBSCRIPTS, AND SUPERSCRIPTS
+%
+% IMPORTANT
+% Below are a few tips to help format your equations and other special characters according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
+%
+% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
+%
+% Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
+%
+% Please add line breaks to long display equations when possible in order to fit size of the column. 
+%
+% For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
+%
+% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2". 
+%
+% Do not use \cal for caligraphic font.  Instead, use \mathcal{}
+%
+% % % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Please contact latex@plos.org with any questions.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
 
-% \documentclass[12pt,a4paper]{article}
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+% \usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage[nopatch=eqnum]{microtype}
+% \DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Use the PLoS provided BiBTeX style
+\bibliographystyle{plos2015}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
 \RequirePackage{tikz}
 
-% \documentclass[sn-apacite,xelatex]{sn-jnl}
-% \documentclass[smallextended]{svjour3}
-\documentclass{article}
-
-% \usepackage{program}
-% \catcode`\|=12\relax
-
-\usepackage[margin=1in]{geometry}
 \usepackage[toc]{appendix}
 % \usepackage{natbib}
 \usepackage[backend=biber, style=numeric-comp, sortcites=false,sorting=none,uniquelist=false,natbib=true,doi=true,isbn=false,url=false,eprint=false,pagetracker, ibidtracker=constrict, giveninits=true,maxbibnames=10,maxcitenames=1]{biblatex}
@@ -32,11 +160,8 @@
 
 \addbibresource{references.bib}
 
-% \usepackage{authblk}
-% \usepackage[hyperref]{acl2020}
 \usepackage[colorlinks=true,citecolor=blue]{hyperref}
-% \usepackage{times}
-\usepackage{textcomp}
+% \usepackage{textcomp}
 \usepackage{textgreek}
 \usepackage{latexsym}
 \usepackage[T1]{fontenc}
@@ -79,46 +204,67 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
-\title{Balancing Specialization and Adaptation in a Transforming Scientific Landscape}
+\usepackage{lscape}
 
-% \title{A Bayesian approach to Specialization versus Adaptation in a Transforming Scientific Landscape}
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
 
-% \title{Specialization versus adaptation: exploring the evolution of high-energy physicists' research agenda}
+%% Include all macros below
 
-% \journalname{TBD}
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
 
+%% END MACROS SECTION
 
-% \usepackage[misc]{ifsym}
-\newcommand*{\affaddr}[1]{#1} 
-\newcommand*{\affmark}[1][*]{\textsuperscript{#1}}
-\newcommand*{\email}[1][*]{\texttt{#1}}
-
-\author{Lucas Gautheron\protect\affmark[1,2]}
-
-
-\date{}
 
 \begin{document}
-\maketitle
 
-%TC:ignore
 
-\begin{abstract}
-How do scientists navigate between the need to capitalize on their prior knowledge through specialization, and the urge to adapt to evolving research opportunities? Drawing from diverse perspectives on adaptation, including cultural evolution, this paper proposes an unsupervised Bayesian approach motivated by Optimal Transport of the evolution of scientists' research portfolios in response to transformations in their field. The model relies on $186,162$ scientific abstracts and authorship data to evaluate the influence of intellectual, social, and institutional resources on scientists' trajectories within a cohort of $2\,195$ high-energy physicists between 2000 and 2019. Using Inverse Optimal Transport, the reallocation of research efforts is shown to be shaped by learning costs, thus enhancing the utility of the scientific capital disseminated among scientists. Two dimensions of social capital, namely ``diversity'' and ``power'', have opposite associations with the magnitude of change in scientists' research interests: while ``diversity'' disrupts and expands research interests, ``power'' is associated with more stable research agendas. Social capital plays a more crucial role in shifts between cognitively distant research areas. More generally, this work suggests new approaches for understanding, measuring and modeling collective adaptation using Optimal Transport.
+\vspace*{0.2in}
+
+
+% Title must be 250 characters or less.
+\begin{flushleft}
+{\Large
+\textbf\newline{Balancing specialization and adaptation in a transforming scientific landscape} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+}
+\newline
+% Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
+
+Lucas Gautheron\textsuperscript{1,2}
+\\
+\bigskip
+\textbf{1} Interdisciplinary Centre for Science and Technology Studies (IZWT), University of Wuppertal, Germany
+\\
+\textbf{2} Département d'Études Cognitives, École Normale Supérieure, Paris, France
+\\
+\bigskip
+
+% Use the asterisk to denote corresponding authorship and provide email address in note below.
+* lucas.gautheron@gmail.com
+
+\end{flushleft}
+% Please keep the abstract below 300 words
+\section*{Abstract}
+
+How do scientists navigate between the need to capitalize on their prior knowledge through specialization, and the urge to adapt to evolving research opportunities? Drawing from diverse perspectives on adaptation, this paper proposes an unsupervised Bayesian approach motivated by Optimal Transport of the evolution of scientists' research portfolios in response to transformations in their field. The model relies on $186,162$ scientific abstracts and authorship data to evaluate the influence of intellectual, social, and institutional resources on scientists' trajectories within a cohort of $2\,195$ high-energy physicists between 2000 and 2019. Using Inverse Optimal Transport, the reallocation of research efforts is shown to be shaped by learning costs, thus enhancing the utility of the scientific capital disseminated among scientists. Two dimensions of social capital, namely ``diversity'' and ``power'', have opposite associations with the magnitude of change in scientists' research interests: while ``diversity'' disrupts and expands research interests, ``power'' is associated with more stable research agendas. Social capital plays a more crucial role in shifts between cognitively distant research areas. More generally, this work suggests new approaches for understanding, measuring and modeling collective adaptation using Optimal Transport.
     
-\end{abstract}
 
+\linenumbers
 
-\ \\
-
-  \email{lucas.gautheron@gmail.com}\\ORCID: 0000-0002-3776-3373\\
- \affaddr{\affmark[1]Interdisciplinary Centre for Science and Technology Studies (IZWT), University of Wuppertal, Germany}\\
- \affaddr{\affmark[2]Département d'Études Cognitives, École Normale Supérieure, Paris, France}
-
- \paragraph{Keywords}{adaptation; specialization; science of science;  cultural evolution; computational social science; optimal transport}
-
-%TC:endignore
-
+% Use "Eq" instead of "Equation" for equation citations.
 \section{Introduction}
 
 Scientists are subject to conflicting incentives. On the one hand, they must work within the realm of their expertise, where they can most effectively exploit their prior knowledge and compete with peers; this conservative preference for familiar research topics is at the root of specialization. On the other hand, scientists are simultaneously compelled to revise their research interests to engage with more promising research areas in order to benefit from more exposure or to secure funding. Thus, in some instances, specialization is at odds with the need to adapt to the decline of certain research opportunities and the growth of new ones. How do scientists navigate the trade-off between specialization (i.e. the concentration of their intellectual resources within a narrow cognitive range) and adaptation (i.e. the need to adjust these resources to new realities)? This conflict differs from the ``essential tension'' between ``tradition'' and ``innovation'' proposed by \citet{Kuhn1997}, or that between ``exploration'' and ``exploitation'' \citep{March1991}, which have both been explored quantitatively in previous works \citep{Foster2015,Jia2017,Aleta2019,Zeng2019,Tripodi2020,Singh2024,liu2024science}%\footnote{See also the sampling-specialization trade-off, in an evolutionary setting \citep{Frankenhuis2011}}
@@ -273,7 +419,7 @@ For the longitudinal analysis, two time periods are considered. An initial phase
 
 Research portfolios are evaluated in terms of the distribution of keywords (n-grams) that belong to each research area within the scientists' publications' abstracts. Instead of reyling on \gls{pacs} categories and citation data as in most previous works, research areas are extracted with a topic model that recovers latent ``topics'' within the corpus and their vocabulary distributions, while directly classifying keywords into separate research areas. Arguably, texts provide a more direct access to the kinds of knowledge leveraged by a scientist in their publications: linguistic flexibility implies cognitive flexibility and a low commitment to a specific body of knowledge. Moreover, this approach is applicable to a wider range of situations for which only textual data (even short texts) are available. For instance, \gls{pacs} codes are only sparsely available in the recent \gls{hep} literature. A coarse-grained classification of the literature into $K=20$ broad ``topics'' is performed. The number of topics is always somewhat arbitrary, but that topic models give some control over the cognitive scale is a feature, rather than a bug\footnote{Previous works based on the \gls{pacs} categories have leveraged the different levels of this hierarchical classification system to investigate different scales.}: as \citet{Gieryn1978} puts it, ``in such analyses [of problem change], empirical findings will in part reflect the defined scope of problem areas'', which is itself arbitrary. In this case, $K=20$ is just sufficient to discern the effects of the transformations in \gls{hep} discussed in Section \ref{sec:hep}.
 
-We use an embedding model \citealt{Dieng2020}, a recent and straightforward approach that relies on pretrained embeddings representations of the n-grams and provides more reliable classifications for heavy-tailed vocabulary distributions than previous models such as Latent Dirichlet Allocation \citep{Blei2003}. Given the coarseness of the clustering, Language Models were not deemed necessary.
+We use an embedding topic model \citealt{Dieng2020}, a recent and straightforward approach that relies on pretrained embeddings representations of the n-grams and provides more reliable classifications for heavy-tailed vocabulary distributions than previous models such as Latent Dirichlet Allocation \citep{Blei2003}. Given the coarseness of the clustering, more sophisticated Language Models were not deemed necessary.
 The model is trained on $D=186,162$ abstracts published between 2000 and 2019. Tokens are extracted from the papers' titles and abstracts by filtering n-grams between one and three words matching syntactic expressions susceptible of carrying scientific information (by designating concepts, models, methods, etc.), following the procedure from \citealt{Gautheron2023,omodei_tel-01097702}. Embeddings are learned using a skip-grap model in $L=50$ dimensions (few are needed given the small size of the vocabulary, $V=4,751$). We obtain the topics listed in Appendix \ref{appendix:topics}, Table \ref{table:research_areas}. Four of the 20 resulting topics regroup keywords that do not clearly refer to any specific research area (e.g. ``paper'', ``approach'') and correlate poorly with the \gls{pacs} categories, which suggests their lack of scientific dimension. Consequently, the present analysis only considers the $K=16$ remaining topics that designate actual research areas (as confirmed by their strong tendency to preferably cite themselves, cf. Appendix \ref{appendix:citation_validation}, and their correlation patterns with the \gls{pacs} classification, cf. Appendix \ref{appendix:pacs_validation}). Since the choice of vetoing topics involved a human decision, it was made final before proceeding to the rest of the analysis, in order to constrain ``researcher degrees of freedom'' \citep{simmons2011false}.
 
 Then, we derive $n_{dk}$, the amount of keywords in the abstract of $d$ that refer to a research area $k$ (using the method described in Appendix \ref{appendix:keywords}), and consequently $X_{a,k}$, the amount of times keywords (``resources'', i.e. concepts, models, methods, etc.) in relation to research area $k$ have occurred in papers (co-)authored by $a$ in the initial time-period (2000 to 2009). Mathematically, $X_{a,k}=\sum_{d\in [2000,2009],a\in A_d} n_{d,k}$, where $A_d$ is the set of authors of a publication $d$. The matrix $Y_{a,k}$ is derived similarly, using publications from the later time period (2015 to 2019). Research portfolios are then normalized into distributions $x_{ak} \equiv X_{ak}/\sum_{k'} X_{ak'}$ and $y_{ak} \equiv Y_{ak}/\sum_{k'} Y_{ak'}$, thus encoding how scientists divided their attention during each period. This approach ensures that research portfolios are evaluated based on the frequency of keywords that belong to each ``topic'', according to the idea illustrated in Figure \ref{fig:research-agenda}. Therefore, this approach captures variations in the prevalence of different kinds of vocabulary (and thus bodies of knowledge) exploited in scientists' publications.
@@ -629,21 +775,21 @@ The effect of social capital on transfers across research areas ($\delta_{kk'}$,
 
 
 \begin{figure}[h]
-\hspace{-2em}
-\begin{subfigure}{.5\textwidth}
+\hspace{-8em}
+\begin{subfigure}{.6\textwidth}
     \includegraphics[width=1\textwidth]{Fig7a}
     \caption{Effect of intellectual capital ($\gamma_{kk'}$).}
     \label{fig:intellectual-capital-effect}
 \end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.6\textwidth}
     \includegraphics[width=1\textwidth]{Fig7b}
     \caption{Effect of social capital ($\delta_{kk'}$).}
     \label{fig:social-capital-effect}
 \end{subfigure}
+\vspace{1em}
 \caption{\textbf{Effect of intellectual and social capital on transfers across research areas}. Rows represent research areas of origin and columns represent target areas. Effect sizes are expressed in log-odds ($\log {[\theta_{akk'}/(1-\theta_{akk'})]}$, where $\theta_{akk'}$ is the fraction of attention to $k$ redirected to $k'$) per unit of intellectual or social capital in the target research area $k'$. Stars indicate credible levels ($\ast$: 95\%; $\ast\ast$: 99.7\%).}
 \label{fig:test}
-\end{figure}
-Moreover, we find a strong correlation between the effect of social capital ($\delta_{kk'}$), and $\nu_{kk'}\in[0,1]$, the fraction of physicists with more expertise than average in a research area $k'$ among those who have more expertise than average in $k$ (see Eq. \eqref{eq:social_capital_nu}, Section \ref{sec:model}). $\delta_{kk'}$ decreases by 1.5 unit of standard deviation on average as $\nu_{kk'}$ goes from 0 (nobody holds expertise in both research areas $k$ and $k'$) to 1 (everyone with expertise in $k$ has expertise in $k'$). Social capital plays a more important role in shifts between cognitively distant research areas, in line with a previous finding by \citeauthor{Tripodi2020} \citealt{Tripodi2020}.
+\end{figure} Moreover, we find a strong correlation between the effect of social capital ($\delta_{kk'}$), and $\nu_{kk'}\in[0,1]$, the fraction of physicists with more expertise than average in a research area $k'$ among those who have more expertise than average in $k$ (see Eq. \eqref{eq:social_capital_nu}, Section \ref{sec:model}). $\delta_{kk'}$ decreases by 1.5 unit of standard deviation on average as $\nu_{kk'}$ goes from 0 (nobody holds expertise in both research areas $k$ and $k'$) to 1 (everyone with expertise in $k$ has expertise in $k'$). Social capital plays a more important role in shifts between cognitively distant research areas, in line with a previous finding by \citeauthor{Tripodi2020} \citealt{Tripodi2020}.
 
 % [To be continued\dots]
 % \subsection{\label{sec:outcomes}Outcomes of changes in research interests}
@@ -698,6 +844,7 @@ Moreover, although the unsupervised topic model approach is arguably a better pr
 
 \paragraph{Acknowledgements}{I thank Thomas Heinze, Radin Dardashti, and Elisa Omodei for useful discussions; Georges Ricci for raising my interest in Optimal Transport; Marco Schirone for useful references; the LATTICE lab in Montrouge for the opportunity to discuss this work; and Elizabeth Zanghi for corrections.}
 
+\nolinenumbers
 
 
 \printbibliography
@@ -745,7 +892,9 @@ The average effective amount of topics in documents according to the topic model
 
 \subsubsection{List of topics}
 
-\fontsize{6}{7}\selectfont\input{Table1}\normalsize
+\begin{landscape}
+    \fontsize{6}{7}\selectfont\input{Table1}\normalsize
+\end{landscape}
 
 \subsubsection{\label{appendix:citation_validation}Topic validation using the citation network}
 
@@ -783,7 +932,7 @@ Figure \ref{fig:capital_measures} shows the Pearson correlation between differen
     D_{\text{Stirling}} = 1-\sum_{k,k'}d_{kk'}I_{ak}I_{ak'}
 \end{equation}
 
-Where $d_{kk'}$ is the fraction of scientists who have more expertise than average in both $k$ and $k'$ among those that have expertise in one or the other (i.e., a similarity matrix). This  follows from previous approaches for measuring research interdisciplinarity \citealt{Porter2007,Leahey2016}.}. A measure of brokerage is also considered\footnote{We evaluated brokerage as the amount of pairs of scientists that have collaborated with a given physicist while having no common collaborator except for this physicist. This effectively measures the extent to which this physicist connects otherwise disconnected scientists.}. 
+Where $d_{kk'}$ is the fraction of scientists who have more expertise than average in both $k$ and $k'$ among those that have expertise in one or the other (i.e., a similarity matrix); following previous approaches for measuring research interdisciplinarity \citealt{Porter2007,Leahey2016}.}. A measure of brokerage is also considered\footnote{We evaluated brokerage as the amount of pairs of scientists that have collaborated with a given physicist while having no common collaborator except for this physicist. This effectively measures the extent to which this physicist connects otherwise disconnected scientists.}. 
 
 As shown in Figure \ref{fig:capital_measures}, the entropic measure of diversity considered in this paper correlates strongly with the Stirling measure. The magnitude of social capital (which is similar to degree centrality) correlates weakly with excess social diversity, thus emphasizing that power and diversity are partially orthogonal aspects of social capital. The magnitude of social capital is strongly correlated with brokerage; indeed, strongly connected scientists, with higher degree centrality, are also those scientists who initiate collaborations between otherwise disconnected scientists, as measured by brokerage.
 
@@ -886,8 +1035,10 @@ The same model structure is used for the probability of having exited a research
 \end{figure}
 
 
-\input{Table3}
-\input{Table4}
+\begin{landscape}
+    \input{Table3}
+    \input{Table4}
+\end{landscape}
 
 % \section{\label{appendix:macro}Macroscopic transfers}
 
@@ -1034,4 +1185,7 @@ The transfers of attention are shown in Figure \ref{fig:sankey_acl}. Compared to
 
 %TC:endignore
 
+
+
 \end{document}
+
