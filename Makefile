@@ -23,7 +23,7 @@ Fig*.pdf:
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/cost_matrix_knowledge_bounded.eps ./Fig13.eps
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/cost_vs_nu_knowledge.eps ./Fig14a.eps
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/ei_R_control_nu.eps ./Fig14b.eps
-	cp -L adaptation_specialization_material/output/etm_20_pretrained/change_score.eps ./Fig15.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/change_disruption_score.eps ./Fig15.eps
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/disruption_score_effects_entropy_magnitude.eps ./Fig16.eps
 	cp -L adaptation_specialization_material/output/acl_2002_2022/sankey_control_nu_acl.pdf ./Fig17.pdf
 	
