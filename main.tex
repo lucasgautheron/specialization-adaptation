@@ -865,7 +865,7 @@ The model for $c_a$ is:
 
 \begin{align*}
     z(c_a) &\sim \mathcal{N}(\mu_a,\sigma)\\
-    \mu_a &= \beta^{\text{int-div}} z(D(\bm{I_a}))+\beta^{\text{soc-div}}z(D^{\ast}(\bm{S_a})) + \beta^{\text{power}} z(P(\bm{S_a})) + \beta^{\text{stability}} p_a + \beta^{\text{age}} z(a_a) + \mu^{\text{area}}_{k_a} + \mu\\
+    \mu_a &= \beta^{\text{int-div}} z(D(\bm{I_a}))+\beta^{\text{soc-div}}z(D^{\ast}(\bm{S_a})) + \beta^{\text{power}} z(P(\bm{S_a})) + \beta^{\text{stability}} p_a + \beta^{\text{age}} z(a_a) + \beta^{\text{prod}} z(\pi_a) + \mu^{\text{area}}_{k_a} + \mu\\
     k_a &= \argmax_k x_{ak}\\
     \beta,\mu &\sim \mathcal{N}(0, 1)\\
     |\mu^{\text{area}}_k| &\sim \mathrm{Exponential}(\tau)\\
@@ -879,7 +879,7 @@ Where $z(\cdot)$ denotes standardized variables.
 The model for the probability $p_a$ of having entered a new field:
 
 \begin{align*}
-    \mathrm{logit}(p_a) &= \beta^{\text{int-div}} z(D(\bm{I_a}))+\beta^{\text{soc-div}}z(D^{\ast}(\bm{S_a})) + \beta^{\text{power}} z(P(\bm{S_a})) + \beta^{\text{stability}} p_a  + \beta^{\text{age}} z(a_a) + \mu^{\text{area}}_{k_a} + \mu\\
+    \mathrm{logit}(p_a) &= \beta^{\text{int-div}} z(D(\bm{I_a}))+\beta^{\text{soc-div}}z(D^{\ast}(\bm{S_a})) + \beta^{\text{power}} z(P(\bm{S_a})) + \beta^{\text{stability}} p_a  + \beta^{\text{age}} z(a_a) + \beta^{\text{prod}} z(\pi_a) + \mu^{\text{area}}_{k_a} + \mu\\
     k_a &= \argmax_k x_{ak}\\
     \beta,\mu &\sim \mathcal{N}(0, 1)\\
     |\mu^{\text{area}}_k| &\sim \mathrm{Exponential}(\tau)\\
