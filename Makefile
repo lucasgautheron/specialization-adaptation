@@ -9,8 +9,8 @@ Fig*.pdf:
 	datalad get adaptation_specialization_material/output/etm_20_pretrained/*.png
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/sankey_control_control_nu_compact.pdf ./Fig3a.pdf
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/sankey_control_control_nu_compact_darkmatter.pdf ./Fig3b.pdf
-	cp -L adaptation_specialization_material/output/etm_20_pretrained/trajectory_example_S.Ando.1.eps ./Fig4a.eps
-	cp -L adaptation_specialization_material/output/etm_20_pretrained/trajectory_example_J.F.Beacom.1.eps ./Fig4b.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/portfolios_S.Ando.1.eps ./Fig4a.eps
+	cp -L adaptation_specialization_material/output/etm_20_pretrained/portfolios_J.Huston.1.eps ./Fig4b.eps
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/change_score_effects_entropy_magnitude.eps ./Fig5.eps
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/entered_score_effects_entropy_magnitude.eps ./Fig6.eps
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/ei_gamma_control_nu.eps ./Fig7a.eps
@@ -32,9 +32,6 @@ Table*.tex:
 	cp -L adaptation_specialization_material/output/scores.tex ./Table2.tex
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/summary_change_disruption.tex ./Table3.tex
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/summary_entered_exited.tex ./Table4.tex
-	cp -L adaptation_specialization_material/output/etm_20_pretrained/low_change.tex ./Table5.tex
-	cp -L adaptation_specialization_material/output/etm_20_pretrained/top_change.tex ./Table6.tex
-	cp -L adaptation_specialization_material/output/hep_vs_acl.tex ./Table7.tex
 
 clean:
 	rm -rf rm -f *.bbl *.aux *.blg *.log *.out *.pdf *.tdo *.fls *.fdb_latexmk *.ist *-eps-converted-to.pdf *.bcf *.run.xml *.acn *.synctex.gz *.toc
