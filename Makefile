@@ -43,3 +43,8 @@ clean:
 	datalad drop adaptation_specialization_material/output/etm_20_r/*.pdf
 	datalad drop adaptation_specialization_material/output/etm_20_r/*.png
 	datalad drop adaptation_specialization_material/output/etm_20_pretrained/sample_characteristics.png
+
+diff: references.bib Fig*.pdf Table*.tex
+	git show 3290b4afdf51416a51e56fe537180eb379192873:main.tex > v1.tex
+	latexdiff v1.tex main.tex > diff.tex
+	latexmk -pdf diff.tex
