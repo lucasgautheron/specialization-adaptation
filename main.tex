@@ -754,7 +754,7 @@ Moreover, although the unsupervised topic model approach is arguably a better pr
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Fig9.pdf}
-    \caption{\textbf{Distribution of academic age (in 2015) and affiliation stability within the considered cohort}.  Academic age (left plot) is evaluated as the time passed since the first publication. There is a cut-off in the distribution academic age due to the requirement on publication counts between 2000 and 2009. The median age is 23 years in 2015. 49\% of the cohort has had at least one permanent affiliation spanning the period under consideration (right plot). As expected, permanent affiliations are associated with higher academic ages (bars indicate min/max/quartiles). }
+    \caption{\textbf{Distribution of academic age (in 2019) and affiliation stability within the considered cohort}.  Academic age (left plot) is evaluated as the time passed since the first publication. There is a cut-off in the distribution academic age due to the requirement on publication counts between 2000 and 2009. The median age is 27 years in 2019. 48\% of the cohort has had at least one permanent affiliation spanning the period under consideration (right plot). As expected, permanent affiliations are associated with higher academic ages (bars indicate min/max/quartiles). }
     \label{fig:sample_characteristics}
 \end{figure}
 
@@ -772,6 +772,13 @@ For that, each keyword $i$ from a document $d$ is assigned a research area $z_{d
 In the process, we discard ambiguous keywords for which $H(z_{di})\geq \log{2}$, where $H$ denotes the entropy of the distribution $P(z_{di}=k|w_{di})$. Either such keywords do not carry any scientific content, or the context is insufficient to disambiguate among the possible research areas to which they might belong.
 
 The average effective amount of topics in documents according to the topic model -- measured as $\exp H(\bm{\theta}_{d})$ where $H$ is the Shannon entropy -- is 7.5, which is unrealistically high. The filtering and classification procedure reduces the average effective amount of topics to 3.2 per document, which is much more informative. This procedure is especially important for short texts such as abstracts, which poorly constrain the latent topic distribution $\bm{\theta}_{d}$.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{word2vec_validation}
+    \caption{Loss of the word2vec model as a function of the embeddings dimension ($L$).}
+    \label{fig:word2vec}
+\end{figure}
 
 \subsubsection{List of topics}
 
