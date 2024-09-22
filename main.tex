@@ -560,7 +560,7 @@ The problem of recovering the cost matrix $C_{kk'}$ given the couplings is an In
 This method requires to put a prior on $P(C_{kk'})$ -- indeed, infinitely many cost matrices yield the same optimum, and priors are needed to lift this degeneracy. Following \citealt{pmlr-v162-chiu22b}, we consider a prior such that $\sum_{k,k'}C_{kk'}=\mathrm{cst}$. We assume that $\mathbb{E}(C_{kk'})\propto \mathrm{softmax}(\beta \times (1-\nu_{kk'}))$\footnote{This prior has the merit of simplicity -- it is a simple generalized linear model with the desired support.}, where $\nu_{kk'}$ is the fraction of physicists who already held expertise in $k'$ among those who already held expertise in $k$, and $\beta\sim\mathcal{N}(0,1)$ is the effect of learning costs on $C_{kk
 }$. If $\nu_{kk'}\sim 1$ (i.e. $1-\nu_{kk'}\sim 0$), then shifting attention from $k$ to $k'$ does not entail the acquisition of additional knowledge, and $C_{kk'}$ should be almost zero. If $\nu_{kk'}=0$ (i.e. $1-\nu_{kk'}= 1$), any scientist shifting from $k$ toward $k'$ must acquire new knowledge, and the cost should be maximal. If actual behaviors \textit{do} involve the minimization of learning costs, we should observe a strong correlation between $C_{kk'}$ and the ``knowledge gap'' ($1-\nu_{kk'}$).
 
-\begin{figure}[H]
+\begin{figure}[!h]
 \begin{subfigure}{.475\textwidth}
     \centering
     \includegraphics[height=1\textwidth]{Fig13}
