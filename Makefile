@@ -6,6 +6,8 @@ main.pdf: main.tex references.bib Fig*.pdf Table*.tex
 Fig*.pdf:
 	datalad get adaptation_specialization_material/output/acl_2002_2022/*.pdf
 	datalad get adaptation_specialization_material/output/etm_20_r/*.pdf
+	datalad get adaptation_specialization_material/output/etm_15_pretrained/*.pdf
+	datalad get adaptation_specialization_material/output/etm_25_pretrained/*.pdf
 	datalad get adaptation_specialization_material/output/etm_20_r/*.png
 	datalad get adaptation_specialization_material/output/etm_20_pretrained/sample_characteristics.png
 	cp -L adaptation_specialization_material/output/etm_20_r/sankey_control_control_nu_compact.pdf ./Fig3a.pdf
@@ -19,6 +21,7 @@ Fig*.pdf:
 	cp -L adaptation_specialization_material/output/experiments.eps ./Fig8.eps
 	cp -L adaptation_specialization_material/output/etm_20_pretrained/sample_characteristics.png ./Fig9.png
 	cp -L adaptation_specialization_material/output/etm_20_r/topic_citation_matrix.eps ./Fig10.eps
+	cp -L adaptation_specialization_material/output/etm_20_r/topic_experiments.eps ./topic_experiments.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/pacs_clustermap.eps ./Fig11.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/capital_measures.eps ./Fig12.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/cost_matrix_knowledge_bounded.eps ./Fig13.eps
@@ -26,6 +29,12 @@ Fig*.pdf:
 	cp -L adaptation_specialization_material/output/etm_20_r/ei_R_control_nu.eps ./Fig14b.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/change_disruption_score.eps ./Fig15.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/change_score_effects_entropy_magnitude.eps ./Fig16.eps
+	cp -L adaptation_specialization_material/output/etm_20_r/change_score_effects_entropy_magnitude_fla.pdf ./change_score_effects_entropy_magnitude_fla.pdf
+	cp -L adaptation_specialization_material/output/etm_20_r/entered_score_effects_entropy_magnitude_fla.pdf ./entered_score_effects_entropy_magnitude_fla.pdf
+	cp -L adaptation_specialization_material/output/etm_15_pretrained/change_score_effects_entropy_magnitude_compact.pdf ./change_score_effects_entropy_magnitude_15.pdf
+	cp -L adaptation_specialization_material/output/etm_15_pretrained/entered_score_effects_entropy_magnitude_compact.pdf ./entered_score_effects_entropy_magnitude_15.pdf
+	cp -L adaptation_specialization_material/output/etm_25_pretrained/change_score_effects_entropy_magnitude_compact.pdf ./change_score_effects_entropy_magnitude_25.pdf
+	cp -L adaptation_specialization_material/output/etm_25_pretrained/entered_score_effects_entropy_magnitude_compact.pdf ./entered_score_effects_entropy_magnitude_25.pdf
 	cp -L adaptation_specialization_material/output/acl_2002_2022/sankey_control_nu_acl.pdf ./Fig17.pdf
 	
 Table*.tex:
@@ -44,7 +53,7 @@ clean:
 	datalad drop adaptation_specialization_material/output/etm_20_r/*.png
 	datalad drop adaptation_specialization_material/output/etm_20_pretrained/sample_characteristics.png
 
-diff: references.bib Fig*.pdf Table*.tex
+diff: main.tex references.bib Fig*.pdf Table*.tex
 	git show 3290b4afdf51416a51e56fe537180eb379192873:main.tex > v1.tex
 	latexdiff v1.tex main.tex > diff.tex
 	latexmk -pdf diff.tex
