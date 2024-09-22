@@ -853,7 +853,7 @@ The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 1\,000\,000 iterat
 
 \eqref{eq:entropic} is sometimes referred to as the entropic prior \citep{skilling1991bayesian,MacKay1995}. The mean posterior values of $C_{k,k'}$ are shown in Figure \ref{fig:cost_knowledge}, as a function of the knowledge gap from $k$ to $k'$. The knowledge gap  $1-\nu_{kk'}$ is the fraction of experts in $k$ who do not hold significant expertise in $k'$ ($\nu$ is shown in Figure \ref{fig:nu}).  A significant correlation is found ($R=-0.76$). This is true also for the replication dataset of computational linguistics research (Appendix \ref{appendix:hep_vs_acl}), for which $R=-0.63$.
 
-\begin{figure}[!h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Fig14a}
     \caption{Cost of shifting a unit of cohort's research attention from $k$ to $k'$ as a function of the fraction of physicists with expertise in $k'$ among those with expertise in $k$ ($\nu_{kk'}$).}
