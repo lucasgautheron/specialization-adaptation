@@ -24,6 +24,7 @@ Fig*.pdf:
 	cp -L adaptation_specialization_material/output/etm_20_r/topic_experiments.eps ./topic_experiments.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/pacs_clustermap.eps ./Fig11.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/capital_measures.eps ./Fig12.eps
+	cp -L adaptation_specialization_material/output/etm_20_r/sankey_four.pdf ./sankey_four.pdf
 	cp -L adaptation_specialization_material/output/etm_20_r/cost_matrix_knowledge_bounded.eps ./Fig13.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/cost_vs_nu_knowledge.eps ./Fig14a.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/ei_R_control_nu.eps ./Fig14b.eps
