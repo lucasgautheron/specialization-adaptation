@@ -267,10 +267,10 @@ For the longitudinal analysis, two time periods are considered. An initial phase
 
 \subsection{\label{sec:topics}Measuring research portfolios}
 
-Research portfolios are evaluated in terms of the distribution of keywords (n-grams) that belong to each research area within the scientists' publications' abstracts. Instead of reyling on \gls{pacs} categories and citation data as in most previous works, research areas are extracted with a topic model that recovers latent ``topics'' within the corpus and their vocabulary distributions, while directly classifying keywords into separate research areas. Arguably, texts provide a more direct access to the kinds of knowledge leveraged by a scientist in their publications: linguistic flexibility implies cognitive flexibility and a low commitment to a specific body of knowledge. Moreover, this approach is applicable to a wider range of situations for which only textual data (even short texts) are available. For instance, \gls{pacs} codes are only sparsely available in the recent \gls{hep} literature. A coarse-grained classification of the literature into $K_0=20$ broad ``topics'' is performed. The number of topics is always somewhat arbitrary, but that topic models give some control over the cognitive scale is a feature, rather than a bug\footnote{Previous works based on the \gls{pacs} categories have leveraged the different levels of this hierarchical classification system to investigate different scales.}: as \citet{Gieryn1978} puts it, ``in such analyses [of problem change], empirical findings will in part reflect the defined scope of problem areas'', which is itself arbitrary. In this case, $K=20$ is just sufficient to discern the effects of the transformations in \gls{hep} discussed in Section \ref{sec:hep} as well as the observed evolution in the popularity of various kinds of experiments shown in Appendix \ref{appendix:landscape}, Figure \ref{fig:experiments}. Two additional models were trained, setting $K=15$ and $K=25$, but these were less able to explore the shift from neutrinos to dark matter in the landscape of experimental opportunities (see Appendix \ref{appendix:topic_comparison}, Figure \ref{fig:topic_experiments}).
+Research portfolios are evaluated in terms of the distribution of keywords (n-grams) that belong to each research area within the scientists' publications' abstracts. Instead of reyling on \gls{pacs} categories and citation data as in most previous works, research areas are extracted with a topic model that recovers latent ``topics'' within the corpus and their vocabulary distributions, while directly classifying keywords into separate research areas. Arguably, texts provide a more direct access to the kinds of knowledge leveraged by a scientist in their publications: linguistic flexibility implies cognitive flexibility and a low commitment to a specific body of knowledge. Moreover, this approach is applicable to a wider range of situations for which only textual data (even short texts) are available. For instance, \gls{pacs} codes are only sparsely available in the recent \gls{hep} literature. A coarse-grained classification of the literature into $K_0=20$ broad ``topics'' is performed. The number of topics is always somewhat arbitrary, but that topic models give some control over the cognitive scale is a feature, rather than a bug\footnote{Previous works based on the \gls{pacs} categories have leveraged the different levels of this hierarchical classification system to investigate different scales.}: as \citet{Gieryn1978} puts it, ``in such analyses [of problem change], empirical findings will in part reflect the defined scope of problem areas'', which is itself arbitrary. In this case, $K=20$ is just sufficient to discern the effects of the transformations in \gls{hep} discussed in Section \ref{sec:hep} as well as the observed evolution in the popularity of various kinds of experiments shown in Appendix \ref{appendix:landscape}, Figure \ref{fig:experiments}. Two additional models were trained, setting $K_0=15$ and $K_0=25$, but these were less able to explore the shift from neutrinos to dark matter in the landscape of experimental opportunities (see Appendix \ref{appendix:topic_comparison}, Figure \ref{fig:topic_experiments}).
 
 We use an embedding model \citealt{Dieng2020}, a recent and straightforward approach that relies on pretrained embeddings representations of the n-grams and provides more reliable classifications for heavy-tailed vocabulary distributions than previous models such as Latent Dirichlet Allocation \citep{Blei2003}. Given the coarseness of the clustering, Language Models were not deemed necessary.
-The model is trained on $D=186,162$ abstracts published between 2000 and 2019. Tokens are extracted from the papers' titles and abstracts by filtering n-grams between one and three words matching syntactic expressions susceptible of carrying scientific information (by designating concepts, models, methods, etc.), following the procedure from \citealt{Gautheron2023,omodei_tel-01097702}. Embeddings are learned using a skip-grap model in $L=50$ dimensions (few are needed given the small size of the vocabulary, $V=4,751$) \citep{word2vec}. We obtain the topics listed in Appendix \ref{appendix:topics}, Table \ref{table:research_areas}. Four of the 20 resulting topics regroup keywords that do not clearly refer to any specific research area (e.g. ``paper'', ``approach'') and correlate poorly with the \gls{pacs} categories, which suggests their lack of scientific dimension. Consequently, the present analysis only considers the $K=15$ remaining topics that designate actual research areas (as confirmed by their strong tendency to preferably cite themselves, cf. Appendix \ref{appendix:citation_validation}, and their correlation patterns with the \gls{pacs} classification, cf. Appendix \ref{appendix:pacs_validation}). In order to enhance the robustness of the topic removal process, we made sure all retained topics had a maximal loading on the \gls{pacs} classification higher than that of all removed topics.
+The model is trained on $D=186,162$ abstracts published between 2000 and 2019. Tokens are extracted from the papers' titles and abstracts by filtering n-grams between one and three words matching syntactic expressions susceptible of carrying scientific information (by designating concepts, models, methods, etc.), following the procedure from \citealt{Gautheron2023,omodei_tel-01097702}. Embeddings are learned using a skip-grap model in $L=50$ dimensions (few are needed given the small size of the vocabulary, $V=4,751$; see Appendix \ref{appendix:topics}, Figure \ref{fig:word2vec}) \citep{word2vec}. We obtain the topics listed in Appendix \ref{appendix:topics}, Table \ref{table:research_areas}. Four of the 20 resulting topics regroup keywords that do not clearly refer to any specific research area (e.g. ``paper'', ``approach'') and correlate poorly with the \gls{pacs} categories, which suggests their lack of scientific dimension. Consequently, the present analysis only considers the $K=15$ remaining topics that designate actual research areas (as confirmed by their strong tendency to preferably cite themselves, cf. Appendix \ref{appendix:citation_validation}, and their correlation patterns with the \gls{pacs} classification, cf. Appendix \ref{appendix:pacs_validation}). In order to enhance the robustness of the topic removal process, we made sure all retained topics had a maximal loading on the \gls{pacs} classification higher than that of all removed topics.
 
 Then, we derive $n_{dk}$, the amount of keywords in the abstract of $d$ that refer to a research area $k$ (using the method described in Appendix \ref{appendix:keywords}), and consequently $X_{a,k}$, the amount of times keywords (``resources'', i.e. concepts, models, methods, etc.) in relation to research area $k$ have occurred in papers (co-)authored by $a$ in the initial time-period (2000 to 2009). Mathematically, $X_{a,k}=\sum_{d\in [2000,2009],a\in A_d} n_{d,k}$, where $A_d$ is the set of authors of a publication $d$. The matrix $Y_{a,k}$ is derived similarly, using publications from the later time period (2015 to 2019). Research portfolios are then normalized into distributions $x_{ak} \equiv X_{ak}/\sum_{k'} X_{ak'}$ and $y_{ak} \equiv Y_{ak}/\sum_{k'} Y_{ak'}$, thus encoding how scientists divided their attention during each period. This approach ensures that research portfolios are evaluated based on the frequency of keywords that belong to each ``topic'', according to the idea illustrated in Figure \ref{fig:research-agenda}. Therefore, this approach captures variations in the prevalence of different kinds of vocabulary (and thus bodies of knowledge) exploited in scientists' publications. For purposes of illustration, Figure \ref{fig:turns_neutrinos_dm} shows the research portfolios of one physicst who migrated from neutrinos to dark matter physics, and of one physicist who maintained their research agenda over the time periods considered.
 
@@ -539,7 +539,6 @@ a shared set of anomalies in astronomical observations, and yet their communitie
 
  \begin{figure}[h]
      \centering
-     
 \begin{subfigure}[t]{.47\textwidth}
 \includegraphics[width=1.05\textwidth,trim={2.1cm 1.5cm 2.1cm 1.5cm},clip]{Fig3a.pdf}
     \caption{\label{fig:sankey_a}Transfers across all research areas.}
@@ -556,8 +555,8 @@ While the paper focuses on two time periods (2000-2009 and 2015-2019), multiple 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\textwidth,trim={2.1cm 1.5cm 2.1cm 1.5cm},clip]{sankey_four.pdf}
-    \caption{Transfers of research attention among a research cohort of physicists throughout the years 2000 to 2019.}
+    \includegraphics[width=0.8\textwidth,trim={2.1cm 1.5cm 2.1cm 1.5cm},clip]{sankey_four.pdf}
+    \caption{Aggregate transfers of attention throughout the years 2000 to 2019, consider four time-intervals of five years each.}
     \label{fig:sankey_five_years}
 \end{figure}
 
@@ -771,6 +770,17 @@ Moreover, although the unsupervised topic model approach is arguably a better pr
 
 \subsection{\label{appendix:topics}Topics}
 
+\subsubsection{\label{appendix:word2vec}Word embeddings dimension}
+
+The word2vec skip-gram models is trained using different values for $L$ the dimension of the embeddings' space. $L=50$ (the choice made in the present paper) generally lies somewhere between under-fitting and over-fitting.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{word2vec_validation}
+    \caption{Loss of the word2vec model as a function of the embeddings dimension ($L$). }
+    \label{fig:word2vec}
+\end{figure} 
+
 \subsubsection{\label{appendix:keywords}Keyword classification}
 
 In the Embedding Topic Model used in the present paper -- as in topic models in general--, documents are mixtures of several topics; moreover, keywords may belong to several topics. This is a desirable feature: certain concepts serve different purposes depending on the context, and some concepts do not clearly belong to any research area. More importantly, this is crucial to the present approach, given that we must be sensitive to situations in which scientists have repurposed certain concepts to new research goals; i.e., instances where the same resources are applied in a new context (a new research area).
@@ -783,13 +793,6 @@ For that, each keyword $i$ from a document $d$ is assigned a research area $z_{d
 In the process, we discard ambiguous keywords for which $H(z_{di})\geq \log{2}$, where $H$ denotes the entropy of the distribution $P(z_{di}=k|w_{di})$. Either such keywords do not carry any scientific content, or the context is insufficient to disambiguate among the possible research areas to which they might belong.
 
 The average effective amount of topics in documents according to the topic model -- measured as $\exp H(\bm{\theta}_{d})$ where $H$ is the Shannon entropy -- is 7.5, which is unrealistically high. The filtering and classification procedure reduces the average effective amount of topics to 3.2 per document, which is much more informative. This procedure is especially important for short texts such as abstracts, which poorly constrain the latent topic distribution $\bm{\theta}_{d}$.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\linewidth]{word2vec_validation}
-    \caption{Loss of the word2vec model as a function of the embeddings dimension ($L$).}
-    \label{fig:word2vec}
-\end{figure} 
 
 \subsubsection{List of topics}
 
@@ -815,7 +818,7 @@ $\mathrm{npmi}(k,k')$ is shown in Figure \ref{fig:topic_citation_matrix}. It mea
 \subsubsection{\label{appendix:topic_comparison}A comparison of three topic models}
 
 Figure \ref{fig:topic_experiments} compares the ability of three topic models to observe the transformations in high-energy physics research resulting from changes in the landscape of experimental opportunities. 
-In the alternative models ($K=15$ and $K=25$), many types of experiments are lumped together into single topic. As a result, they are ill-suited for assessing the impact of the transformations in the landscape of experimental opportunities. In particular, the model used throughout the paper is better able to distinguish neutrino research for dark matter research, which have both undergone significant transformations according to Figure \ref{fig:experiments}.
+In the alternative models ($K_0=15$ and $K_0=25$), many types of experiments are lumped together into single topic. As a result, they are ill-suited for assessing the impact of the transformations in the landscape of experimental opportunities. In particular, the model used throughout the paper is better able to distinguish neutrino research for dark matter research, which have both undergone significant transformations according to Figure \ref{fig:experiments}.
 
 \begin{figure}[H]
     \centering
@@ -945,25 +948,25 @@ The same model structure is used for the probability of having exited a research
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{change_score_effects_entropy_magnitude_15.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability the magnitude of changes in high-energy physicists' interests} (alternative topic model, $K=15$).}
+    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability the magnitude of changes in high-energy physicists' interests} (alternative topic model, $K_0=15$).}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{entered_score_effects_entropy_magnitude_15.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability on the the probability of entering/leaving a research area} (alternative topic model, $K=15$).}
+    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability on the the probability of entering/leaving a research area} (alternative topic model, $K_0=15$).}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{change_score_effects_entropy_magnitude_25.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability the magnitude of changes in high-energy physicists' interests} (alternative topic model, $K=25$).}
+    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability the magnitude of changes in high-energy physicists' interests} (alternative topic model, $K=25_0$).}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{entered_score_effects_entropy_magnitude_25.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability on the the probability of entering/leaving a research area} (alternative topic model, $K=25$).}
+    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability on the the probability of entering/leaving a research area} (alternative topic model, $K=25_0$).}
 \end{figure}
 
 
