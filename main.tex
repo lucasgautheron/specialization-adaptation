@@ -823,9 +823,8 @@ In the alternative models ($K=15$ and $K=25$), many types of experiments are lum
 
 Blue cells show that the research areas recovered from the topic model correlate with the PACS classification (which further confirms their scientific dimension), but also that they can give a different picture. For instance, each of the topics  ``dark matter'', ``black holes'' and ``cosmology'' span over several higher-level categories of the PACS classification (e.g. ``fundamental astronomy \dots'' and ``specific theories and interaction models \dots'' for dark matter).
 
+
 \subsection{\label{appendix:capital_validation}Measures of capital}
-
-
 
 Figure \ref{fig:capital_measures} shows the Pearson correlation between different measures of the diversity of intellectual and social capital and of power, as evaluated among the cohort of high-energy physicists. For comparison purposes, an alternative measure of diversity based on Stirling's index \citep{Stirling2007}, with prior applications to studies of interdisciplinarity \citep{Porter2007,Leahey2016} is evaluated\footnote{The Stirling-based diversity measured is evaluated as: \begin{equation}
     D_{\text{Stirling}} = 1-\sum_{k,k'}d_{kk'}I_{ak}I_{ak'}
@@ -843,7 +842,18 @@ As shown in Figure \ref{fig:capital_measures}, the entropic measure of diversity
     \label{fig:capital_measures}
 \end{figure}
 
-\subsection{\label{appendix:model-performance}Model performance}
+\subsection{\label{appendix:temporal_segmentation}Exploring alternative temporal segmentation}
+
+While the paper focuses on two time periods (2000-2009 and 2015-2019), multiple alternative temporal segmentations are considered. Figure \ref{fig:sankey_five_years} shows the transfers of research attention of a cohort of physicists across four time-periods of five years each.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{sankey_four.pdf}
+    \caption{Transfers of research attention among a research cohort of physicists throughout the years 2000 to 2019.}
+    \label{fig:sankey_five_years}
+\end{figure}
+
+\subsection{\label{appendix:model-performance}Model performance over multiple corpora, temporal segmentations, and topic granularities}
 
 The predictive power of the model can be assessed by evaluating the total variation distance between the true distribution $\bm{y_a}$ and the predicted distribution $\bm{y_a^{\text{pred}}}$. This performance metric is calculated via 10-fold cross-validation. It is compared  to a baseline model that predicts no change in the research agenda ($\bm{y_a^{\text{baseline}}}=\bm{x_a}$). The results are shown in Table \ref{table:performance}. For the cohort of high-energy physicists, the model performs only marginally better than the baseline, given that individuals have remained quite conservative on average, most of the fluctuations being difficult to predict. Table \ref{table:performance} also considers a cohort of scientists from the ACL anthology corpus  of computational linguistics research \citep{acl_anthology_corpus}, by running the same pipeline (the measurement of research portfolios during two consecutive time periods using our topic model approach and the training of the trajectory model). Although the data are of significantly lesser quality, research portfolios have undergone much more significant transformations in this dataset (see Appendix \ref{appendix:hep_vs_acl}, Figure \ref{fig:sankey_acl}). Consequently, our model performs much better than the baseline for this cohort.
 
