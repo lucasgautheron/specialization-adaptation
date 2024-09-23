@@ -5,11 +5,10 @@ main.pdf: main.tex references.bib Fig*.pdf Table*.tex
 
 Fig*.pdf:
 	datalad get adaptation_specialization_material/output/acl_2002_2022/*.pdf
+	datalad get adaptation_specialization_material/output/*.pdf
 	datalad get adaptation_specialization_material/output/etm_20_r/*.pdf
 	datalad get adaptation_specialization_material/output/etm_15_pretrained/*.pdf
 	datalad get adaptation_specialization_material/output/etm_25_pretrained/*.pdf
-	datalad get adaptation_specialization_material/output/etm_20_r/*.png
-	datalad get adaptation_specialization_material/output/etm_20_pretrained/sample_characteristics.png
 	cp -L adaptation_specialization_material/output/etm_20_r/sankey_control_control_nu_compact.pdf ./Fig3a.pdf
 	cp -L adaptation_specialization_material/output/etm_20_r/sankey_control_control_nu_compact_darkmatter.pdf ./Fig3b.pdf
 	cp -L adaptation_specialization_material/output/etm_20_r/portfolios_S.Ando.1.eps ./Fig4a.eps
@@ -19,7 +18,8 @@ Fig*.pdf:
 	cp -L adaptation_specialization_material/output/etm_20_r/ei_gamma_control_nu.eps ./Fig7a.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/ei_delta_control_nu.eps ./Fig7b.eps
 	cp -L adaptation_specialization_material/output/experiments.eps ./Fig8.eps
-	cp -L adaptation_specialization_material/output/etm_20_pretrained/sample_characteristics.png ./Fig9.png
+	cp -L adaptation_specialization_material/output/etm_20_r/age.pdf ./Fig9.pdf
+	cp -L adaptation_specialization_material/output/word2vec_validation.pdf ./word2vec_validation.pdf
 	cp -L adaptation_specialization_material/output/etm_20_r/topic_citation_matrix.eps ./Fig10.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/topic_experiments.eps ./topic_experiments.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/pacs_clustermap.eps ./Fig11.eps
@@ -50,8 +50,6 @@ clean:
 	rm -rf ./Fig*.png
 	rm -rf ./Table*.tex
 	datalad drop adaptation_specialization_material/output/etm_20_r/*.pdf
-	datalad drop adaptation_specialization_material/output/etm_20_r/*.png
-	datalad drop adaptation_specialization_material/output/etm_20_pretrained/sample_characteristics.png
 
 diff: main.tex references.bib Fig*.pdf Table*.tex
 	git show 3290b4afdf51416a51e56fe537180eb379192873:main.tex > v1.tex
