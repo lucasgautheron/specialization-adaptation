@@ -30,12 +30,6 @@ Fig*.pdf:
 	cp -L adaptation_specialization_material/output/etm_20_r/ei_R_control_nu.eps ./Fig14b.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/change_disruption_score.eps ./Fig15.eps
 	cp -L adaptation_specialization_material/output/etm_20_r/change_score_effects_entropy_magnitude.eps ./Fig16.eps
-	cp -L adaptation_specialization_material/output/etm_20_r/change_score_effects_entropy_magnitude_fla.pdf ./change_score_effects_entropy_magnitude_fla.pdf
-	cp -L adaptation_specialization_material/output/etm_20_r/entered_score_effects_entropy_magnitude_fla.pdf ./entered_score_effects_entropy_magnitude_fla.pdf
-	cp -L adaptation_specialization_material/output/etm_15_pretrained/change_score_effects_entropy_magnitude_compact.pdf ./change_score_effects_entropy_magnitude_15.pdf
-	cp -L adaptation_specialization_material/output/etm_15_pretrained/entered_score_effects_entropy_magnitude_compact.pdf ./entered_score_effects_entropy_magnitude_15.pdf
-	cp -L adaptation_specialization_material/output/etm_25_pretrained/change_score_effects_entropy_magnitude_compact.pdf ./change_score_effects_entropy_magnitude_25.pdf
-	cp -L adaptation_specialization_material/output/etm_25_pretrained/entered_score_effects_entropy_magnitude_compact.pdf ./entered_score_effects_entropy_magnitude_25.pdf
 	cp -L adaptation_specialization_material/output/acl_2002_2022/sankey_control_nu_acl.pdf ./Fig17.pdf
 	
 Table*.tex:
@@ -43,6 +37,7 @@ Table*.tex:
 	cp -L adaptation_specialization_material/output/scores.tex ./Table2.tex
 	cp -L adaptation_specialization_material/output/etm_20_r/summary_change_disruption.tex ./Table3.tex
 	cp -L adaptation_specialization_material/output/etm_20_r/summary_entered_exited.tex ./Table4.tex
+	cp -L adaptation_specialization_material/output/full_summary.tex full_summary.tex
 
 clean:
 	rm -rf rm -f *.bbl *.aux *.blg *.log *.out *.pdf *.tdo *.fls *.fdb_latexmk *.ist *-eps-converted-to.pdf *.bcf *.run.xml *.acn *.synctex.gz *.toc
