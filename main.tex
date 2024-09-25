@@ -52,6 +52,7 @@
 \usepackage{subcaption}
 
 \usepackage{longtable}
+\usepackage{makecell}
 \usepackage{multirow}
 \usepackage{multicol}
 
@@ -927,48 +928,18 @@ The same model structure is used for the probability of having exited a research
 
 % \section{\label{appendix:macro}Macroscopic transfers}
 
-\subsubsection{\label{appendix:fla}Complementary analysis considering scientists' first and last authored papers alone}
+\subsection{\label{section:robustness}Additional robustness checks}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{change_score_effects_entropy_magnitude_fla.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability on the magnitude of changes in high-energy physicists' interests} (considering only their first and last authored publications).}
-    \label{fig:lfa_change}
-\end{figure}
+The robustness of the results of the comparative analysis is assessed by varying different parameters:
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{entered_score_effects_entropy_magnitude_fla.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability on the the probability of entering/leaving a research area} (considering only their first and last authored publications).}
-    \label{fig:lfa_entered}
-\end{figure}
+\begin{itemize}
+    \item The papers included in each authors' portfolio (any paper versus first-authored and last-authored papers only)
+    \item The amount of topics in the topic model ($K_0$)
+    \item The amount of dimensions for the word embeddings ($L$)
+    \item The temporal segmentation
+\end{itemize}
 
-\subsubsection{\label{appendix:fla}Complementary analysis with alternative topic models}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{change_score_effects_entropy_magnitude_15.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability the magnitude of changes in high-energy physicists' interests} (alternative topic model, $K_0=15$).}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{entered_score_effects_entropy_magnitude_15.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability on the the probability of entering/leaving a research area} (alternative topic model, $K_0=15$).}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{change_score_effects_entropy_magnitude_25.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability the magnitude of changes in high-energy physicists' interests} (alternative topic model, $K=25_0$).}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{entered_score_effects_entropy_magnitude_25.pdf}
-    \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability on the the probability of entering/leaving a research area} (alternative topic model, $K=25_0$).}
-\end{figure}
-
+\input{full_summary}
 
 \subsection{\label{appendix:hep_vs_acl}Replication corpus}
 
