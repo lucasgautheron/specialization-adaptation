@@ -124,7 +124,7 @@ How do scientists navigate between the need to capitalize on their prior knowled
 Scientists are subject to conflicting incentives. On the one hand, they must work within the realm of their expertise, where they can most effectively exploit their prior knowledge and compete with peers; this conservative preference for familiar research topics is at the root of specialization. On the other hand, scientists are simultaneously compelled to revise their research interests to engage with more promising research areas in order to benefit from more exposure or to secure funding. Thus, in some instances, specialization is at odds with the need to adapt to the decline of certain research opportunities and the growth of new ones. How do scientists navigate the trade-off between specialization (i.e. the concentration of their intellectual resources within a narrow cognitive range) and adaptation (i.e. the need to adjust these resources to new realities)? This conflict differs from the ``essential tension'' between ``tradition'' and ``innovation'' proposed by \citet{Kuhn1997}, or that between ``exploration'' and ``exploitation'' \citep{March1991}, which have both been explored quantitatively in previous works \citep{Foster2015,Jia2017,Aleta2019,Zeng2019,Tripodi2020,Singh2024,liu2024science}%\footnote{See also the sampling-specialization trade-off, in an evolutionary setting \citep{Frankenhuis2011}}
 . First, ``adaptation'' is not tantamount to innovation or disruption, for it can be a conformist move (e.g. as a result of a bandwagon effect \citep{Fujimura1988}). Moreover,  unlike ``exploration'', adaptation is not identical to a search strategy in a static landscape \citep{Galesic2023}, but rather the convergence towards a new state more congruent with current realities. Disruptions due to breakthroughs in Machine Learning or challenges due to climate change urge to understand how scientists adapt to changing circumstances. Therefore, the present paper investigates scientists' responses to changes in their field (whether driven by epistemic or institutional factors), and the effect of their capital (intellectual, social, or institutional) on their ability to adapt. Drawing insights on adaptation from cultural evolution and institutional change, we develop an unsupervised Bayesian approach to analyze changes in scientists' research agenda while measuring the effect of ``capital'' (intellectual or social) on their individual trajectories. The model is applied to a cohort of high-energy physicists between the years 2000 and 2019, a time during which the historical driver of progress in the field -- particle accelerators -- have been contested by emerging astrophysical experiments, thus transforming the landscape of opportunities.
 
-Our approach reveals trends in the field: the boom of dark matter research -- fueled by shifts away from the physics of neutrinos and the electroweak sector -- and the partial disintegration of string theory into the study of black holes and holography/dualities. More importantly, this analysis also shows that changes in scientists' research portfolios are shaped by learning costs, as scientific communities adapting to new circumstances address an ``Optimal Transport'' problem by reallocating research efforts efficiently. Optimal Transport is a mathematical framework initially concerned with the optimal displacement and allocation of resources \citep{monge1781memoire,kantorovich2006translocation,Peyr2019}, and has since then found wide-ranging applications. We show that it also provides a characterization of scientists' behavior, as driven by the need to maximize the utility of their scientific capital under changing circumstances. Moreover, the comparative analysis shows that two dimensions of social capital, namely ``diversity'' and ``power'' \citep{Abbasi2014}, have opposite associations with change. While ``diversity'' of social capital  -- the extent to which scientists have access to diverse cognitive resources via their collaborators -- promotes change and further diversification of scientists' research interests, ``power'' -- roughly speaking, the size of their network -- is associated with more stability in their research interests. Social capital has a stronger effect on transfers between research areas that are more cognitively ``distant''. There is no discernible effect of institutional stability after controlling for academic age (although affiliation data is a bit noisy in the dataset). Overall, we contribute: i) a conceptual account of the features of change in scientists' research interests; ii) a novel methodological approach that introduces a model of scientists' trajectories connected to Optimal Transport and measures of intellectual capital, social capital, diversity, and power; and finally, iii) some empirical evidence from high-energy physics. More generally, this paper addresses the relative lack of empirical works within the body of literature that investigates science as a cultural evolutionary system \citep{Wu2023}. It demonstrates that Optimal Transport provides an insightful description of certain aspects of collective adaptation, but also computational tools (such as Probabilistic Inverse Optimal Transport \citep{pmlr-v162-chiu22b} and OT based measures of change) for measuring adaptive behavior, and more generally, mobility in physical and abstract spaces.
+Our approach reveals trends in the field: the boom of dark matter research -- fueled by shifts away from the physics of neutrinos and the electroweak sector -- and the partial disintegration of string theory into the study of black holes and holography/dualities. More importantly, this analysis also shows that changes in scientists' research portfolios are shaped by learning costs, as scientific communities adapting to new circumstances address an ``Optimal Transport'' problem by reallocating research efforts efficiently. Optimal Transport is a mathematical framework initially concerned with the optimal displacement and allocation of resources \citep{monge1781memoire,kantorovich2006translocation,Peyr2019}, and has since then found wide-ranging applications. We show that it also provides a characterization of scientists' behavior, as driven by the need to maximize the utility of their scientific capital under changing circumstances. Moreover, the comparative analysis shows that two dimensions of social capital, namely ``diversity'' and ``power'' \citep{Abbasi2014}, have opposite associations with change. While ``diversity'' of social capital  -- the extent to which scientists have access to diverse cognitive resources via their collaborators -- is correlated to change and further diversification of scientists' research interests, ``power'' -- roughly speaking, the size of their network -- is associated with more stability in their research interests. Social capital has a stronger effect on transfers between research areas that are more cognitively ``distant''. There is no discernible effect of institutional stability after controlling for academic age (although affiliation data is a bit noisy in the dataset). Overall, we contribute: i) a conceptual account of the features of change in scientists' research interests; ii) a novel methodological approach that introduces a model of scientists' trajectories connected to Optimal Transport and measures of intellectual capital, social capital, diversity, and power; and finally, iii) some empirical evidence from high-energy physics. More generally, this paper addresses the relative lack of empirical works within the body of literature that investigates science as a cultural evolutionary system \citep{Wu2023}. It demonstrates that Optimal Transport provides an insightful description of certain aspects of collective adaptation, but also computational tools (such as Probabilistic Inverse Optimal Transport \citep{pmlr-v162-chiu22b} and OT based measures of change) for measuring adaptive behavior, and more generally, mobility in physical and abstract spaces.
 
 In what follows, Sections \ref{sec:review} and \ref{sec:conceptual} summarize previous research and lay out the conceptual background on which the analysis rests, and Section \ref{sec:hep} introduces the context of high-energy physics to which the model is applied. 
 Section \ref{sec:methods} elaborates the methodology: the data (\ref{sec:data}), the topic model approach for measuring authors' research portfolios (\ref{sec:topics}), the proposed measures of intellectual and social capital (\ref{sec:capital}), and the model of scientists' trajectories (\ref{sec:model}).
@@ -277,13 +277,13 @@ Then, we derive $n_{dk}$, the amount of keywords in the abstract of $d$ that ref
 
 \begin{figure}[h]
 \begin{subfigure}{.45\textwidth}
-    \includegraphics[width=1.15\textwidth]{Fig4a}
+    \includegraphics[width=1.15\textwidth]{Fig2a}
     \caption{Physicist A. %Most associated keywords: super kamiokande, atmospheric neutrino, oscillation, solar neutrino, antineutrino, kamland, reactor, supernova, long baseline, sno
     }
     \label{fig:S.Ando.1}
 \end{subfigure}\hfill%
 \begin{subfigure}{0.45\textwidth}
-    \includegraphics[width=1.15\textwidth]{Fig4b}
+    \includegraphics[width=1.15\textwidth]{Fig2b}
     \caption{Physicist B. %Most associated keywords: super kamiokande, icecube, diffuse, atmospheric neutrino, antineutrino, neutrino telescope, high energy neutrino, earth, kamland, extragalactic
     }
     \label{fig:J.F.Beacom.1}
@@ -378,7 +378,7 @@ Priors must be thought thoroughly, as certain invariances can lead to identifica
 }\textsuperscript{,}\footnote{The fit is performed with Stan's Hamiltonian Monte-Carlo sampler (HMC is better behaved than Gibbs for such problems).%The variant of the model in \ref{appendix:knowledge} is more complex and a single-point estimate is obtained via gradient-descent instead.
 }. %Of course, the model could be modified to accommodate different covariates can be considered. To illustrate that, Appendix \ref{appendix:knowledge} introduces an alternative model in which the covariate is a vector representing scientists' individual knowledge, thus allowing to measure the effect of specific keywords on transfers between research areas.
 %Models of ecological inference such as this can be weakly identified, as the data alone sometimes poorly constrain individual values of $\bm{\theta_{ak}}$.
-The ability of the model to predict individual trajectories is assessed in Appendix \ref{appendix:model-performance}, for various time-segmentations of the initial and late research portfolios. The larger the adaptive response of the cohort, the better the model performs.  %This warrants some caution when using models such as this one for studying specific individuals (e.g. by inspecting values of $\bm{\theta_{ak}}$ for one individual); the main interest of the model lies in its ability to capture the average effect of certain covariates (e.g. social capital). This weakness converges with the criticism of ecological inference raised by the ``ecological fallacy'' argument \citep{freedman1999ecological} according to which they are limits to what can be inferred about individuals based on aggregate data. 
+The ability of the model to predict individual trajectories is assessed in Appendix \ref{appendix:model-performance}, for various time-segmentations of the initial and late research portfolios. The models is better at predicting individual trajectories for larger adaptive responses and longer time-scales.  %This warrants some caution when using models such as this one for studying specific individuals (e.g. by inspecting values of $\bm{\theta_{ak}}$ for one individual); the main interest of the model lies in its ability to capture the average effect of certain covariates (e.g. social capital). This weakness converges with the criticism of ecological inference raised by the ``ecological fallacy'' argument \citep{freedman1999ecological} according to which they are limits to what can be inferred about individuals based on aggregate data. 
 %Nevertheless, this approach enables estimates of the effect of certain variables on transitions between research areas, and the Bayesian formulation naturally accounts for the uncertainty associated with limited identifiability. 
 
 Our model is strongly connected to Optimal Transport \citep{muzellec2017tsallis,li2019learning}, which seeks optimal ways to  ``transport'' an input distribution (say, $\bm{x}=(x_k)$) to a target distribution (e.g., $\bm{y}=(y_{k'}$)) through ``transfers'' $(\theta_{kk'})$ across their components while minimizing a cost function $\sum_{k,k'} x_{k} \theta_{kk'}C_{kk'}$ (where $C_{kk'}$ is a cost matrix) \citep{Peyr2019}. The difference is that the proposed Bayesian approach estimates transfers $\theta_{kk'}$ by minimizing a likelihood rather than a cost function. However, the connection with Optimal Transport suggests an economic interpretation of the reallocation of research efforts, which will be leveraged in Section \ref{sec:optimal-transport} to show that patterns of change in research interests are shaped by learning costs. %This shows that scientific communities adapt in a way that somewhat minimizes learning costs.  %Moreover, Optimal Transport induces distances between distributions (the distance between a source distribution and a target distribution being the minimal cost of ``transporting'' the former to the latter). Consequently, it can be the basis for measures of change or disruption of research agendas. 
@@ -541,18 +541,18 @@ a shared set of anomalies in astronomical observations, and yet their communitie
  \begin{figure}[h]
      \centering
 \begin{subfigure}[t]{.47\textwidth}
-\includegraphics[width=1.05\textwidth,trim={2.1cm 1.5cm 2.1cm 1.5cm},clip]{Fig3a.pdf}
+\includegraphics[width=1.05\textwidth,trim={2.1cm 1.5cm 2.1cm 1.5cm},clip]{Fig4a.pdf}
     \caption{\label{fig:sankey_a}Transfers across all research areas.}
 \end{subfigure}\hfill%
 \begin{subfigure}[t]{0.47\textwidth}
-\includegraphics[width=1.05\textwidth,trim={2.1cm 1.5cm 2.1cm 1.5cm},clip]{Fig3b.pdf}
+\includegraphics[width=1.05\textwidth,trim={2.1cm 1.5cm 2.1cm 1.5cm},clip]{Fig4b.pdf}
     \caption{\label{fig:sankey_b}Flows of attention directed towards ``dark matter''.}
 \end{subfigure}
      \caption{\textbf{(a) Aggregate transfers of attention across research areas, between 2000-2009 (to the left) and 2015-2019 (to the right)}. Widths of flows are proportional to $\sum_a X_{ak}\theta_{akk'}$. Insignificant transfers (that happen less than expected by chance alone assuming uniform mixing) are transparent. (b) For purposes of clarity, the same figure is repeated to the right, highlighting only the flows directed towards ``Dark matter''.}
      \label{fig:sankey}
  \end{figure}
 
-While the paper focuses on two time periods (2000-2009 and 2015-2019), multiple alternative temporal segmentations can be considered. Figure \ref{fig:sankey_five_years} shows the transfers of research attention of a cohort of physicists across four time-periods of five years each. It reveals that the changes outlined above have unfolded rather gradually. The average diversity of phyiscists' research portfolio ($\mu(D)$) during each five-year time-bin is also shown. It has gradually increased over the years ($P<10^{-4}$): on average, physicists have \textit{expanded} their portfolio.
+While the paper focuses on two time periods (2000-2009 and 2015-2019), multiple alternative temporal segmentations can be considered. Figure \ref{fig:sankey_five_years} shows the transfers of research attention of a cohort of physicists across four time-periods of five years each. It reveals that the changes outlined above have unfolded rather gradually. The average diversity of physicists' research portfolio ($\mu(D)$) during each five-year time-bin is also shown. It has gradually increased over the years ($P<10^{-4}$): on average, physicists have \textit{expanded} their portfolio.
 
 \begin{figure}[!h]
     \centering
@@ -574,13 +574,13 @@ This method requires to put a prior on $P(C_{kk'})$ -- indeed, infinitely many c
 \begin{figure}[!h]
 \begin{subfigure}{.475\textwidth}
     \centering
-    \includegraphics[height=1\textwidth]{Fig13}
+    \includegraphics[height=1\textwidth]{Fig6a}
     \caption{Cost matrix $C_{kk'}$. The cost matrix represents the cost of shifting a unit of cohort's research attention from $k$ to $k'$.}
     \label{fig:cost_matrix}
 \end{subfigure}\hfill%
 \begin{subfigure}{0.475\textwidth}
     \centering
-    \includegraphics[height=1\textwidth]{Fig14b}
+    \includegraphics[height=1\textwidth]{Fig6b}
     \caption{Knowledge gap matrix $1-\nu_{kk'}$, where $\nu_{kk'}$ is the fraction of physicists with expertise in the horizontal research area ($k$) who also hold expertise in the vertical research area ($k'$).}
     \label{fig:nu}
 \end{subfigure}
@@ -613,13 +613,13 @@ If the cost matrix meets certain properties (such as symmetry), then $d$ is a di
 $c_a$ is comprised between 0 (if research attention has remained identically distributed) and 1 (if the research agenda has been entirely redistributed).
 Large values of $c_a$ are rare, with 50\% of authors lying between 0.21 and 0.40  (Appendix \ref{appendix:change-model}, Figure \ref{fig:change_scores}). Although the absolute value of $c_a$ (and $d_a$) has limited interpretability (it depends on the choice of ``cognitive scope''   and the duration of the time periods considered, and $c_a$ is never expected to be exactly zero due to random fluctuations and measurement noise), it allows for comparisons between physicists. We evaluate the effect of several factors on $c_a$: i) the diversity of intellectual capital $D(\bm{I_a})$; ii) the excess diversity of social capital $D^{\ast}(\bm{S_a})$; and iii) the magnitude of social capital (``power''). We also consider the effect of iv) affiliation stability, represented by a binary variable $s_a$ ($s_a=1$ if scientist $a$ has at least one affiliation that spans the whole time range considered, and $s_a=0$ otherwise), the effect of v) academic age, and productivity, estimated from vi) all papers and vii) solo-authored papers. We perform a linear regression of $c_a$ as a function of these variables, adjusting for $Z_a=\argmax_{k} x_{ak}$, i.e. physicists' primary research area over the years 2000 to 2009 (see the model specification in Appendix \ref{appendix:change-model}).
 
-The results are shown in Figure \ref{fig:change_score_effect}. The diversity of intellectual capital has a significant positive effect: physicists with resources in many areas tend to revise their research agenda more. There is also evidence of a small but positive effect of diversity of social capital on the magnitude of changes in scientists' research focus (interpreting these results in terms of Optimal Transport, we can say that social capital helps overcome cognitive learning costs). However, the \textit{magnitude} of social capital, ``power'', has a negative direct effect on change. In other words, ``power'' promotes stability, while ``diversity'' promotes change. It is noteworthy that these dimensions of social capital have opposite effects. More senior physicists are more conservative toward their research agenda, possibly because they experience less incentive to ``adapt''. This comes in contrast with \cite{Zeng2019}. The difference could stem in the specificity of high-energy physics, and in the fact that change is measured in linguistics terms (instead of relying on citation patterns) at a rather coarse-grained scale in the present paper. There is no discernible effect of affiliation stability after adjusting for academic age. However, affiliation data is a bit noisy, and this could have the consequence of underestimating the effect of institutional stability relative to that of academic age. Finally, productivity (in co-authored papers) is associated with stability. Overall, entrenchment (age, power, productivity, specialization) all drive stability and conservatism. 
+The results are shown in Figure \ref{fig:change_score_effect}. The diversity of intellectual capital has a significant positive effect: physicists with resources in many areas tend to revise their research agenda more. There is also evidence of a small but positive effect of diversity of social capital on the magnitude of changes in scientists' research focus (interpreting these results in terms of Optimal Transport, we can say that social capital helps overcome cognitive learning costs). However, the \textit{magnitude} of social capital, ``power'', has a negative direct effect on change. In other words, ``power'' is associated with stability, and ``diversity'' with change. It is noteworthy that these dimensions of social capital have opposite effects. More senior physicists are more conservative toward their research agenda, possibly because they experience less incentive to ``adapt''. This comes in contrast with \cite{Zeng2019}. The difference could stem in the specificity of high-energy physics, and in the fact that change is measured in linguistics terms (instead of relying on citation patterns) at a rather coarse-grained scale in the present paper. There is no discernible effect of affiliation stability after adjusting for academic age. However, affiliation data is a bit noisy, and this could have the consequence of underestimating the effect of institutional stability relative to that of academic age. Finally, productivity (in co-authored papers) is associated with stability. Overall, entrenchment (age, power, productivity, specialization) all drive stability and conservatism. 
 
 Unsurprisingly, both research areas that have shrunk considerably have a significant positive effect on migration scores. ``Collider physics'' and ``dark matter'', on the other hand, have a negative effect on the magnitude of change. All effects combined, physicists whose primary category is ``Collider physics'' are the most conservative, with an average change score 24\% lower than the rest of the cohort; the long time-scales of collider experiments provide stable opportunities to physicists in that area \citep[p.~138]{galison1987how}, thus promoting conservatism. The variance explained remains low ($R^2=0.17$): these factors only partially explain differences between individuals.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Fig5}
+    \includegraphics[width=0.8\textwidth]{Fig7}
     \caption{\textbf{Effect of intellectual capital, social capital, and institutional stability the magnitude of changes in high-energy physicists' interests.}. Change ($c_a$) is the total variation distance and weighs migrations across research areas equally. The cognitive distance ($d_a$) gives more weight to migrations across cognitively distant research area. Diversity is evaluated as the exponential of the Shannon entropy of the distribution of intellectual and social capital across research areas. The effect of the primary research area during the initial period (2000-2009) was also included as a control. Three research areas have a significant (95\% CL) effect. Error bars indicate 95\% credible intervals; $\mu(\beta)$ denotes the mean posterior effect size. $R^2=0.17$. Continuous variables (diversity, power and $c_a$) are standardized.}
     \label{fig:change_score_effect}
 \end{figure}
@@ -653,7 +653,7 @@ The diversity of intellectual capital has a strong positive effect on the probab
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Fig6}
+    \includegraphics[width=0.8\textwidth]{Fig8}
     \caption{\textbf{Effect of capital and institutional stability on the probability of entering new research areas or exiting previously explored ones.} Bars indicate 95\% credible intervals. $\mu(\beta)$ denotes the mean posterior effect size. Continuous variables (diversity and power) are standardized.}
     \label{fig:diversification_score_effect}
 \end{figure}
@@ -662,7 +662,7 @@ Again, we ran a second analysis considering only scientists' first-authored and 
 
 \subsubsection{Why diversity promotes change}
 
-Access to diverse cognitive resources promotes change. To see why, it is insightful to look into how the concentration of scientists' intellectual capital in each research area $k$ ($\bm{I_a}=(I_{ak})$) affects their trajectories. In the model introduced in Section \ref{sec:model}, the diagonal coefficients of the $\gamma$ matrix measure the effect of having intellectual resources in a certain area on the commitment to this area. As shown in Figure \ref{fig:intellectual-capital-effect}, most coefficients on the diagonal are significantly positive: physicists with a strong specialization in a research area tend to preserve their specialization in this area.
+Access to diverse cognitive resources is associated with change. To see why, it is insightful to look into how the concentration of scientists' intellectual capital in each research area $k$ ($\bm{I_a}=(I_{ak})$) affects their trajectories. In the model introduced in Section \ref{sec:model}, the diagonal coefficients of the $\gamma$ matrix measure the effect of having intellectual resources in a certain area on the commitment to this area. As shown in Figure \ref{fig:intellectual-capital-effect}, most coefficients on the diagonal are significantly positive: physicists with a strong specialization in a research area tend to preserve their specialization in this area.
 
 The effect of social capital on transfers across research areas ($\delta_{kk'}$, Eq. \ref{eq:glm}), is shown in Figure \ref{fig:social-capital-effect}. Statistically significant effects are always positive: scientists tend to redirect attention to research areas in which they have more collaborators involved, in line with a very recent observation by \citeauthor{Venturini2024} \citealt{Venturini2024}.
 
@@ -670,12 +670,12 @@ The effect of social capital on transfers across research areas ($\delta_{kk'}$,
 \begin{figure}[h]
 \hspace{-2em}
 \begin{subfigure}{.5\textwidth}
-    \includegraphics[width=1\textwidth]{Fig7a}
+    \includegraphics[width=1\textwidth]{Fig9a}
     \caption{Effect of intellectual capital ($\gamma_{kk'}$).}
     \label{fig:intellectual-capital-effect}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
-    \includegraphics[width=1\textwidth]{Fig7b}
+    \includegraphics[width=1\textwidth]{Fig9b}
     \caption{Effect of social capital ($\delta_{kk'}$).}
     \label{fig:social-capital-effect}
 \end{subfigure}
@@ -719,7 +719,7 @@ The longitudinal comparative analysis of physicists' trajectories revealed that 
 We have described renewal strategies of research portfolios according to a typology of incremental change developed in the context of historical institutionalism, which has been shown to account for how organizations like DESY and SLAC have transitioned from \gls{hep} to multi-purpose photon science. Adaptation strategies include the ``conversion'' of prior knowledge to new purposes, the ``layering'' of additional research interests via the acquisition of new knowledge, or the ``displacement'' of former research commitments resulting in a loss of knowledge. The connection with institutional change stems from the fact that institutions can face a challenge similar to that experienced by specialized scientists confronted with transformations in their scientific landscape, in that they too must sometimes adapt and redirect accumulated capital in directions that may not have been foreseen at the time of their ``design''. The \gls{lhc} itself has evolved through similar processes of gradual repurposing of prior infrastructure, including the accelerator's tunnels \citep{Smith2015}: adaptation prompts individuals (and collectives) to efficiently repurpose capital previously accumulated in different forms (cultural, social, economic, etc.). Following \citealt{Galesic2023}, we conclude that a better understanding of collective adaptation benefits from the pooling of diverse insights: while studies of institutional change have documented strategies of gradual adaptation that progressively leverage and repurpose accumulated capital when change is difficult, the literature on cultural evolvability stresses the critical roles of diversity and social learning. In return, this work provides an empirical contribution to the literature that treats science as a cultural evolutionary system \citep{Wu2023}.
 
 Throughout the paper, various methodological limitations were raised. First, the requirement on the quantity of authors' publications makes the cohort atypical. A second issue, already noted by \citet{Gieryn1978}, lies in the arbitrariness in the choice of temporal and cognitive scopes for measuring change. In this paper, the choice in temporal segmentation was motivated by time-scale associated with the transformations in the landscape of experimental opportunities. For shorter time-scales, the very notion of research portfolio -- as operationalized in this paper --  may break down and lose any predictive force. As per the cognitive scope, previous works (e.g. \citealt{Jia2017,Aleta2019,Tripodi2020}) have typically relied on the hierarchical \gls{pacs} classification of physics literature, such that cognitive scales were imposed. For this work, the literature was divided into 15 topics that captured the features of change in the epistemic landscape discussed above, i.e. the rise of new probes of the cosmos, but other scales could have been considered. %However, the topic model recovers a flat structure that does not explain the correlations between different research areas, and a hierarchical structure of knowledge might be more suitable for capturing what allows physicists to switch from one research area to another. 
-Moreover, although the unsupervised topic model approach is arguably a better proxy of cognitive change, it introduces noise which could in part explain the low predictive power of the models of change in scientists' research agendas. Additionally, the topic model was trained on the entire time range covered by the analysis. Changes in the relationships between topics and in their own vocabulary distributions are not considered, even though they constitute another interesting linguistic dimension of adaptive patterns that would deserve further investigation. Morever, the cost of shifting from one research area to another, is itself time-varying quantity in reality. Finally, the sample size $(N=2\,094)$ is insufficient to explore sophisticated interactions or potential moderators in the comparative analysis. This constrains causal interpretations of the findings.
+Moreover, although the unsupervised topic model approach is arguably a better proxy of cognitive change, it introduces noise which could in part explain the low predictive power of the models of change in scientists' research agendas. Additionally, the topic model was trained on the entire time range covered by the analysis. Changes in the relationships between topics and in their own vocabulary distributions are not considered, even though they constitute another interesting linguistic dimension of adaptive patterns that would deserve further investigation. Morever, the cost of shifting from one research area to another, is itself time-varying quantity in reality. Finally, one must be cautious before drawing strong causal conclusions from these findings. While the causal pathway ``power $\to$ collaborations $\to$ stabilization of research interests'' seems to be a reasonable interpretation of the results, the relationship between diversity and change is less clear; they could both be confounded by a shared latent trait observed among certain researchers (e.g. the ``explorers'' in \citealt{Chakresh2023}). Moreover, the sample size $(N=2\,094)$ is insufficient to explore sophisticated interactions or potential moderators in the comparative analysis. 
 
 %TC:ignore
 
@@ -752,7 +752,7 @@ Moreover, although the unsupervised topic model approach is arguably a better pr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Fig8}
+    \includegraphics[width=\textwidth]{Fig10}
     \caption{\textbf{Share of citations of each of the most cited experiments in high-energy physics literature, between 2000 and 2019}. Hatched rectangles correspond to experiments observing particles produced in colliders or nuclear reactors; other rectangles correspond to observations of phenomena or particles of astrophysical origin. We use citation and experiment data from the Inspire HEP database \citep{InspireAPI}. The classification of these experiments is our own. }
     \label{fig:experiments}
 \end{figure}
@@ -762,7 +762,7 @@ Moreover, although the unsupervised topic model approach is arguably a better pr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Fig9.pdf}
+    \includegraphics[width=0.8\textwidth]{Fig11.pdf}
     \caption{\textbf{Distribution of academic age (in 2019) and affiliation stability within the considered cohort}.  Academic age (left plot) is evaluated as the time passed since the first publication. There is a cut-off in the distribution academic age due to the requirement on publication counts between 2000 and 2009. The median academic age is 27 years in 2019. 49\% of the cohort has had at least one permanent affiliation spanning the period under consideration (right plot). As expected, permanent affiliations are associated with higher academic ages (bars indicate min/max/quartiles). }
     \label{fig:sample_characteristics}
 \end{figure}
@@ -775,7 +775,7 @@ The word2vec skip-gram models is trained using different values for $L$ the dime
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{word2vec_validation}
+    \includegraphics[width=0.8\linewidth]{Fig12}
     \caption{Loss of the word2vec model as a function of the embeddings dimension ($L$). }
     \label{fig:word2vec}
 \end{figure} 
@@ -809,7 +809,7 @@ $\mathrm{npmi}(k,k')$ is shown in Figure \ref{fig:topic_citation_matrix}. It mea
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Fig10}
+    \includegraphics[width=0.8\textwidth]{Fig13}
     \caption{\textbf{Normalized pointwise mutual information $\mathrm{npmi}(k,k')$ of the citation matrix $N_{k,k'}$}. Positive values (in blue) indicate that the y-axis research area cites the x-axis research area more often than expected by chance; negative values indicate that citations occur less than expected by chance. When shown, individual values indicate how many times citations occur compared to chance alone. For instance, papers about Hadrons cite papers about Perturbative methods 1.4 times what would be expected if citations were uniform across research areas.}
     \label{fig:topic_citation_matrix}
 \end{figure}
@@ -821,7 +821,7 @@ In the coarse-grained model ($K_0=15$, in the middle), many types of experiments
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{topic_experiments}
+    \includegraphics[width=0.9\textwidth]{Fig14}
     \caption{\label{fig:topic_experiments}Origin of papers citing each type of experiment, according to three topic models: the model considered throughout the present paper (to the left), a model with fewer topics ($K_0=15$), and a model with more topics ($K_0=25$). A value of one (dark red) indicates that 100\% of the papers citing a certain type of experiment (cf. rows) originate from a given topic (cf. columns).}
 \end{figure}
 
@@ -850,7 +850,7 @@ As shown in Figure \ref{fig:capital_measures}, the entropic measure of diversity
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{Fig12}
+    \includegraphics[width=0.6\textwidth]{Fig15}
     \caption{\textbf{Correlation between different measures of capital}. Measures considered in priority in this analysis are shown in bold. Alternative measures are shown for comparison purposes. By construction, excess social diversity is orthogonal to intellectual diversity ($R=0$). }
     \label{fig:capital_measures}
 \end{figure}
@@ -875,7 +875,7 @@ The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 1\,000\,000 iterat
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Fig14a}
+    \includegraphics[width=0.8\textwidth]{Fig16}
     \caption{Cost of shifting a unit of cohort's research attention from $k$ to $k'$ as a function of the fraction of physicists with expertise in $k'$ among those with expertise in $k$ ($\nu_{kk'}$).}
     \label{fig:cost_knowledge}
 \end{figure}
@@ -887,7 +887,7 @@ The MCMC algorithm from \citealt{pmlr-v162-chiu22b} is run on 1\,000\,000 iterat
 \subsubsection{\label{appendix:change-model}Model for the magnitude of change}
 
 \begin{figure}[h]
-    \centering     \includegraphics[width=0.8\textwidth]{Fig15}
+    \centering     \includegraphics[width=0.8\textwidth]{Fig17}
     \caption{\textbf{Distribution of change and cognitive distances in the cohort}. Higher values correspond to more drastic changes in a scientists' research agenda.}    
     \label{fig:change_scores}
 \end{figure}
@@ -945,12 +945,12 @@ To further assess the robustness of the findings, the effect of intellectual and
 
 \begin{figure}[H]
 \begin{subfigure}{.5\textwidth}
-    \includegraphics[width=1\textwidth]{ei_gamma_control_nu_aggregate_0_1.csv}
+    \includegraphics[width=1\textwidth]{Fig19a}
     \caption{Effect of intellectual capital ($\gamma_{kk'}$).}
     \label{fig:intellectual-capital-effect_2000-2009}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
-    \includegraphics[width=1\textwidth]{ei_delta_control_nu_aggregate_0_1.csv}
+    \includegraphics[width=1\textwidth]{Fig19b}
     \caption{Effect of social capital ($\delta_{kk'}$).}
     \label{fig:social-capital-effect_2000-2009}
 \end{subfigure}
@@ -965,7 +965,7 @@ The transfers of attention are shown in Figure \ref{fig:sankey_acl}. Compared to
 
  \begin{figure}[h]
      \centering
-     \includegraphics[width=\textwidth]{Fig17.pdf}
+     \includegraphics[width=\textwidth]{Fig20.pdf}
      \caption{\textbf{Aggregate transfers of attention across research areas in the ACL anthology corpus of Computational Linguistics, between 2002-2011 (to the left) and 2012-2022 (to the right)}. Widths of flows are proportional to $\sum_a X_{ak}\theta_{akk'}$. Transfers less frequent than expected by chance alone are transparent. }
      \label{fig:sankey_acl}
  \end{figure}
