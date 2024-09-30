@@ -552,7 +552,7 @@ a shared set of anomalies in astronomical observations, and yet their communitie
      \label{fig:sankey}
  \end{figure}
 
-While the paper focuses on two time periods (2000-2009 and 2015-2019), multiple alternative temporal segmentations can be considered. Figure \ref{fig:sankey_five_years} shows the transfers of research attention of a cohort of physicists across four time-periods of five years each. 
+While the paper focuses on two time periods (2000-2009 and 2015-2019), multiple alternative temporal segmentations can be considered. Figure \ref{fig:sankey_five_years} shows the transfers of research attention of a cohort of physicists across four time-periods of five years each. It reveals that the changes outlined above have unfolded rather gradually. The average diversity of phyiscists' research portfolio ($\mu(D)$) during each five-year time-bin is also shown. It has gradually increased over the years ($P<10^{-4}$): on average, physicists have \textit{expanded} their portfolio.
 
 \begin{figure}[!h]
     \centering
@@ -588,7 +588,7 @@ This method requires to put a prior on $P(C_{kk'})$ -- indeed, infinitely many c
 \label{fig:knowledge}
 \end{figure}
 
-Using the ``MetroMC'' algorithm proposed in \citealt{pmlr-v162-chiu22b}, we empirically recover $C_{kk'}$, the underlying cost matrix, as shown in Figure \ref{fig:cost_matrix}. We find a strong correlation with the ``knowledge gap'' (shown in Figure \ref{fig:knowledge}): $R(C_{kk'},1-\nu_{kk'})=0.76$, such that $R^2=0.58$ (Figure \ref{fig:cost_knowledge}, see also Appendix \ref{appendix:optimal_transport}). The empirical cost of shifting research efforts from one research area to another is therefore shaped by learning costs. The derivation of $C_{kk'}$ is potentially useful: one could in principle predict aggregate transfers of attention given a counterfactual target distribution of research efforts $\bm{y}$ using optimal transport and plugging-in $C_{kk'}$ as the cost matrix \citep{li2019learning}. 
+Using the ``MetroMC'' algorithm proposed in \citealt{pmlr-v162-chiu22b}, we empirically recover $C_{kk'}$, the underlying cost matrix, as shown in Figure \ref{fig:cost_matrix}. We find a strong correlation with the ``knowledge gap'' (shown in Figure \ref{fig:knowledge}): $R(C_{kk'},1-\nu_{kk'})=0.76$, such that $R^2=0.58$ (Figure \ref{fig:cost_knowledge}, see also Appendix \ref{appendix:optimal_transport}). Using a finer-grained temporal segmentation (2000-2004$\to$2005-2009), the resulting correlation is similar ($R^2=0.62$). The empirical cost of shifting research efforts from one research area to another is therefore shaped by learning costs. The derivation of $C_{kk'}$ is potentially useful: one could in principle predict aggregate transfers of attention given a counterfactual target distribution of research efforts $\bm{y}$ using optimal transport and plugging-in $C_{kk'}$ as the cost matrix \citep{li2019learning}. 
 
 Under changing circumstances, research efforts must be reallocated efficiently. Scientific norms and institutions must address an Optimal Transport problem by providing incentives for scientists to conform to new research imperatives, in a way that factors ``learning costs''. Consequently, shifts between research areas which entail the acquisition of new knowledge (layering) must be less likely that those which can take advantage of prior knowledge (conversion). In the case of \gls{hep}, it does seem that adaptative patterns are structured by this \gls{ot} problem. Interestingly, the matrices in Figure \ref{fig:cost_matrix} and \ref{fig:nu} feature blocks (indicative of an underlying hierarchical structure), such that it is easier for scientists to migrate within than across these blocks. While these observation characterizes the cohort's behavior, drivers of differences among individuals are considered next.
 
@@ -624,11 +624,9 @@ Unsurprisingly, both research areas that have shrunk considerably have a signifi
     \label{fig:change_score_effect}
 \end{figure}
 
-$c_a$ neglects the cognitive gap between research areas. Using our alternative measure of change that takes into account cognitive distance ($d_a$),  the diversity of intellectual and social capital has slightly larger effects. The robustness of these results is assessed by using different operationalizations of diversity and power in Appendix \ref{appendix:robustness}), Table \ref{table:summary_change_disruption}. 
+$c_a$ neglects the cognitive gap between research areas. Using our alternative measure of change that takes into account cognitive distance ($d_a$),  the diversity of intellectual and social capital has slightly larger effects. The robustness of these results is assessed by using different operationalizations of diversity and power in Appendix \ref{appendix:robustness}), Table \ref{table:summary_change_disruption}. Most findings are stable, except that ``brokerage'' (unlike the magnitude of social capital, i.e. degree centrality) has no \textit{direct} effect on change (beyond the effect of productivity resulting from co-authored publications). 
 
-In addition to these robustness assessments, we conducted a second comparative analysis including only scientists' first-authored and last-authored publications in their research portfolios. The effect of the diversity of intellectual and social capital is stable; however, the effect of power is reduced (Appendix \ref{appendix:robustness}, Tables \ref{table:full_summary_change} and \ref{table:full_summary_disruption}).
-
-% A manual inspection of the 20 least and most conservative physicists of the cohort is conducted in Appendix \ref{appendix:cases} and is found to be consistent with these findings.
+In addition, in order to exclude the influence of direct collaborations on change, we conducted a second comparative analysis including only scientists' first-authored and last-authored publications in their research portfolios\footnote{It is important to emphasize that alphabetical ordering is still very prevalent in this field \citep{waltman2012empirical}, and therefore this strategy does not address the issue entirely.}. The effect of the diversity of intellectual and social capital is stable; however, the direct effect of power is reduced (Appendix \ref{appendix:robustness}, Tables \ref{table:full_summary_change} and \ref{table:full_summary_disruption}). Moreover, the analysis was reproduced across different choices of temporal segmentation and using different topic models. The previous findings remain stable.
 
 \subsubsection{Diversification versus concentration}
 
@@ -660,7 +658,7 @@ The diversity of intellectual capital has a strong positive effect on the probab
     \label{fig:diversification_score_effect}
 \end{figure}
 
-Again, we ran a second analysis considering only scientists' first-authored and last-authored publications. The effects of intellectual and social diversity remain stable. However, more senior academics are found to have a lower probability of entering new research areas as we consider only their first- and last-authored papers ($\mu(\beta)=-0.17$; see Table \ref{table:full_summary_entered}, Appendix \ref{appendix:robustness}). ). 
+Again, we ran a second analysis considering only scientists' first-authored and last-authored publications. The effects of intellectual and social diversity remain stable. However, the effect of productivity resulting from co-authored papers no longer has an effect on the probability of exiting a research area when only first- and last-authored papers are included in physicists' research portfolios (\ref{table:full_summary_exited}, Appendix \ref{appendix:robustness}. ). The results are generally stable across different topic models and temporal segmentations, except i) the effect of academic age on the probability of exiting a research area, which is not consistently 95\% CL significant; and ii) the effect of the diversity of social capital on the probability of entering a new research area, which is zero in one particular configuration.
 
 \subsubsection{Why diversity promotes change}
 
@@ -684,7 +682,7 @@ The effect of social capital on transfers across research areas ($\delta_{kk'}$,
 \caption{\textbf{Effect of intellectual and social capital on transfers across research areas}. Rows represent research areas of origin and columns represent target areas. Effect sizes are expressed in log-odds ($\log {[\theta_{akk'}/(1-\theta_{akk'})]}$, where $\theta_{akk'}$ is the fraction of attention to $k$ redirected to $k'$) per unit of intellectual or social capital in the target research area $k'$. Effects that are not significant (at the 95\% credible level) are displayed in white for purposes of clarity.}
 \label{fig:test}
 \end{figure}
-Moreover, we find a strong correlation between the effect of social capital ($\delta_{kk'}$), and $\nu_{kk'}\in[0,1]$, the fraction of physicists with more expertise than average in a research area $k'$ among those who have more expertise than average in $k$ (see Eq. \eqref{eq:social_capital_nu}, Section \ref{sec:model}). $\delta_{kk'}$ decreases by 1.5 unit of standard deviation on average as $\nu_{kk'}$ goes from 0 (nobody holds expertise in both research areas $k$ and $k'$) to 1 (everyone with expertise in $k$ has expertise in $k'$). Social capital plays a more important role in shifts between cognitively distant research areas, in line with a previous finding by \citeauthor{Tripodi2020} \citealt{Tripodi2020}.
+Moreover, we find a strong correlation between the effect of social capital ($\delta_{kk'}$), and $\nu_{kk'}\in[0,1]$, the fraction of physicists with more expertise than average in a research area $k'$ among those who have more expertise than average in $k$ (see Eq. \eqref{eq:social_capital_nu}, Section \ref{sec:model}). $\delta_{kk'}$ decreases by 1.5 unit of standard deviation on average as $\nu_{kk'}$ goes from 0 (nobody holds expertise in both research areas $k$ and $k'$) to 1 (everyone with expertise in $k$ has expertise in $k'$). Social capital plays a more important role in shifts between cognitively distant research areas, in line with a previous finding by \citeauthor{Tripodi2020} \citealt{Tripodi2020}. These general patterns (the association between the concentration of intellectual capital in one area and the commitment to this area, and the increasing effect of social capital with cognitive dissimilarity) are insensitive to the temporal segmentation in place (see Appendix \ref{appendix:model_parameters} for similar Figures based on a different segmentation).
 
 % [To be continued\dots]
 % \subsection{\label{sec:outcomes}Outcomes of changes in research interests}
@@ -947,12 +945,12 @@ To further assess the robustness of the findings, the effect of intellectual and
 
 \begin{figure}[H]
 \begin{subfigure}{.5\textwidth}
-    \includegraphics[width=1\textwidth]{ei_delta_control_nu_aggregate_0_1.csv}
+    \includegraphics[width=1\textwidth]{ei_gamma_control_nu_aggregate_0_1.csv}
     \caption{Effect of intellectual capital ($\gamma_{kk'}$).}
     \label{fig:intellectual-capital-effect_2000-2009}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
-    \includegraphics[width=1\textwidth]{ei_gamma_control_nu_aggregate_0_1.csv}
+    \includegraphics[width=1\textwidth]{ei_delta_control_nu_aggregate_0_1.csv}
     \caption{Effect of social capital ($\delta_{kk'}$).}
     \label{fig:social-capital-effect_2000-2009}
 \end{subfigure}
